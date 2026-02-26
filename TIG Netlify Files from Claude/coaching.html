@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1:1 Coaching — The Integration Gym</title>
+  <meta name="description" content="Individual relational coaching sessions. 70 minutes, $160 per session. Same peer-based approach as cohort work.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f2ed;
+      --white: #ffffff;
+      --dark: #1a1a18;
+      --mid: #3d3d3a;
+      --muted: #6b6860;
+      --accent: #b8860b;
+      --border: #ddd9d2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
+      background: rgba(245,242,237,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-center a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-center a:hover { color: var(--accent); }
+
+    .nav-cta {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #9a7009; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 10rem 3rem 5rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header-inner { max-width: 800px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .page-intro {
+      color: var(--mid);
+      font-size: 1.12rem;
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    /* CONTENT */
+    section { padding: 5rem 3rem; }
+    .content-section { background: var(--bg); }
+    .content-section:nth-of-type(even) { background: var(--white); }
+
+    .content-inner { max-width: 720px; margin: 0 auto; }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.25;
+      margin: 3.5rem 0 1.5rem 0;
+      color: var(--dark);
+    }
+
+    h2:first-child { margin-top: 0; }
+
+    p {
+      font-size: 1.05rem;
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    ul {
+      margin: 1.5rem 0 1.5rem 1.5rem;
+      color: var(--mid);
+      font-size: 1.05rem;
+      line-height: 1.85;
+    }
+
+    li {
+      margin-bottom: 0.7rem;
+      padding-left: 0.5rem;
+    }
+
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+
+    strong { color: var(--dark); font-weight: 600; }
+
+    /* TESTIMONIAL */
+    .testimonial-box {
+      background: var(--dark);
+      padding: 3.5rem 3rem;
+      margin: 4rem 0;
+      border-left: 4px solid var(--accent);
+    }
+
+    .testimonial-text {
+      color: #9a9790;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial-text:last-of-type { margin-bottom: 2rem; }
+
+    .testimonial-attribution {
+      color: var(--accent);
+      font-size: 0.95rem;
+      font-weight: 500;
+      font-style: normal;
+    }
+
+    /* LOGISTICS BOX */
+    .logistics-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .logistics-box p {
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 4rem 3rem;
+      background: var(--dark);
+      margin: 4rem 0 0 0;
+    }
+
+    .cta-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: #f0ece4;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      color: #9a9790;
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 1rem 2.4rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #9a7009; text-decoration: none; }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 3rem 2rem;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .footer-logo {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-center { display: none; }
+      .page-header { padding: 8rem 1.5rem 4rem; }
+      section { padding: 4rem 1.5rem; }
+      .testimonial-box { padding: 2.5rem 2rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">The Integration Gym</a>
+    <ul class="nav-center">
+      <li><a href="index.html#gap">The Work</a></li>
+      <li><a href="index.html#march">March Cohort</a></li>
+      <li><a href="coaching.html">1:1 Coaching</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+    <a href="mailto:dirk@integrationgym.org" class="nav-cta">Email Dirk</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <span class="eyebrow">1:1 Coaching</span>
+      <h1>Individual sessions for focused relational work</h1>
+      <p class="page-intro">The same relational approach as cohort work, but in a dyadic container. One-on-one sessions are for people who need individual attention — whether as preparation for group work, concurrent support during a cohort, or standalone practice when group timing doesn't fit.</p>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="content-section">
+    <div class="content-inner">
+      <h2>What's different from the cohort</h2>
+      
+      <p>The mechanism is the same: patterns formed in relationships shift in relationships. But the container is different.</p>
+
+      <p>In a cohort, the relational field is distributed across multiple people. You see your pattern reflected in others. You practice in front of witnesses. The work happens through peer interaction.</p>
+
+      <p>In 1:1 sessions, the relational field is concentrated in the dyad — just you and me. This creates space for:</p>
+
+      <ul>
+        <li>More individualized attention to your specific pattern</li>
+        <li>Deeper exploration of resistance or stuck points</li>
+        <li>Working with material that feels too vulnerable for group process</li>
+        <li>Faster cycles of noticing and adjusting</li>
+      </ul>
+
+      <p>What doesn't change: this is still peer-based work, not therapy. I'm not diagnosing or fixing. We're practicing together in real time.</p>
+
+      <h2>What happens in a session</h2>
+
+      <p>Sessions are 70 minutes. We work with what's present — what you're noticing in your life, what's showing up in the room between us, what patterns are running right now.</p>
+
+      <p>The work is embodied and relational. We're not just talking about your patterns. We're working with them as they arise — in your body, in the interaction, in real time.</p>
+
+      <p>I use various approaches depending on what's needed: contact statements, shadow work, simple awareness exercises, guided attention to what's happening in your nervous system. The specific technique matters less than the quality of attention we bring to the pattern while it's active.</p>
+
+      <p>Between sessions, you practice. The work doesn't stop when the session ends — it continues in your relationships, your daily life, the moments when the pattern tries to run automatically.</p>
+
+      <h2>Who this is for</h2>
+
+      <p>1:1 sessions work well if:</p>
+
+      <ul>
+        <li>You're preparing for cohort work and want to build foundational awareness first</li>
+        <li>You're in a cohort and need additional support with specific stuck points</li>
+        <li>You've completed cohort work and want ongoing practice</li>
+        <li>Group timing doesn't work but you're committed to the practice</li>
+        <li>You need space to work with material that feels too vulnerable for group process</li>
+      </ul>
+
+      <p>This isn't a substitute for cohort work if you're avoiding the group container. The whole point of the Integration Gym is that patterns show up most clearly in peer groups. If you're capable of group work, that's where the deepest shifts happen.</p>
+
+      <p>But if you genuinely need individual attention — either as preparation, support, or because circumstances prevent group participation — 1:1 sessions can be valuable.</p>
+
+      <div class="testimonial-box">
+        <p class="testimonial-text">"Before working with Dirk, I was trapped in a cycle of anxiety, anger, and self-blame, constantly feeling like I wasn't enough. Despite previous attempts with therapy and medication, nothing brought lasting change.</p>
+        
+        <p class="testimonial-text">Working with Dirk has been a game-changer. I've gained the strength to face my discomfort and traumas with more calm and acceptance. The process hasn't removed the challenges, but it has transformed how I engage with them. Dirk's unique presence — firm yet nurturing — has helped me see and embrace parts of myself I had long avoided.</p>
+        
+        <p class="testimonial-text">Dirk's patience, boundary-setting, and the safe space he created allowed me to confront and process my fears in ways I couldn't have imagined. This journey has felt like a warm, secure tent where I could explore my deepest concerns and emerge feeling more whole and capable."</p>
+        
+        <p class="testimonial-attribution">— Nicola Rigor, Marketing Consultant</p>
+      </div>
+
+      <h2>Logistics</h2>
+
+      <div class="logistics-box">
+        <p><strong>Session length:</strong> 70 minutes</p>
+        <p><strong>Fee:</strong> $160 per session</p>
+        <p><strong>Location:</strong> North of Ballard, Seattle (in-person preferred)</p>
+        <p><strong>Remote:</strong> Video sessions available when needed</p>
+      </div>
+
+      <p>Sessions are scheduled individually based on mutual availability. Consistency matters more than frequency — whether that's weekly, biweekly, or monthly depends on what you're working with and what your life allows.</p>
+
+      <h2>Next step</h2>
+
+      <p>If you're interested in 1:1 sessions, email me directly at <a href="mailto:dirk@integrationgym.org">dirk@integrationgym.org</a>. We'll set up a brief conversation to discuss what you're working with and whether this is the right fit.</p>
+    </div>
+  </section>
+
+  <div class="cta-section">
+    <h3>Schedule a conversation</h3>
+    <p>20 minutes to discuss what you're working with and whether 1:1 sessions make sense.</p>
+    <a href="mailto:dirk@integrationgym.org" class="btn-primary">Email Dirk</a>
+  </div>
+
+  <footer>
+    <span class="footer-logo">The Integration Gym</span>
+    <span class="footer-loc">North of Ballard · Seattle, WA</span>
+  </footer>
+
+</body>
+</html>

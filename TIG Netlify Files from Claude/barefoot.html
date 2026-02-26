@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barefoot Shoes — The Integration Gym</title>
+  <meta name="description" content="Why I've worn Xero Shoes for 15 years. Recommendations for barefoot footwear that doesn't compromise your body mechanics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f2ed;
+      --white: #ffffff;
+      --dark: #1a1a18;
+      --mid: #3d3d3a;
+      --muted: #6b6860;
+      --accent: #b8860b;
+      --border: #ddd9d2;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 3rem;
+      background: rgba(245,242,237,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-center a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-center a:hover { color: var(--accent); }
+
+    .nav-cta {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #9a7009; }
+
+    /* PAGE HEADER */
+    .page-header {
+      padding: 10rem 3rem 5rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header-inner { max-width: 800px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: var(--dark);
+    }
+
+    .page-intro {
+      color: var(--mid);
+      font-size: 1.12rem;
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    /* CONTENT */
+    section { padding: 5rem 3rem; }
+    .content-section { background: var(--bg); }
+    .content-section:nth-of-type(even) { background: var(--white); }
+
+    .content-inner { max-width: 720px; margin: 0 auto; }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.25;
+      margin: 3.5rem 0 1.5rem 0;
+      color: var(--dark);
+    }
+
+    h2:first-child { margin-top: 0; }
+
+    p {
+      font-size: 1.05rem;
+      color: var(--mid);
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+
+    strong { color: var(--dark); font-weight: 600; }
+
+    /* SHOE GRID */
+    .shoe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .shoe-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      border-top: 3px solid var(--accent);
+    }
+
+    .shoe-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .shoe-card p {
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .shoe-link {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-decoration: none;
+    }
+
+    .shoe-link:hover {
+      text-decoration: underline;
+    }
+
+    /* INFO BOX */
+    .info-box {
+      background: var(--dark);
+      padding: 2.5rem;
+      margin: 3rem 0;
+      border-left: 4px solid var(--accent);
+    }
+
+    .info-box p {
+      color: #9a9790;
+      font-size: 1rem;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 3rem 3rem 2rem;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .footer-logo {
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-center { display: none; }
+      .page-header { padding: 8rem 1.5rem 4rem; }
+      section { padding: 4rem 1.5rem; }
+      .shoe-grid { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">The Integration Gym</a>
+    <ul class="nav-center">
+      <li><a href="index.html#gap">The Work</a></li>
+      <li><a href="index.html#march">March Cohort</a></li>
+      <li><a href="coaching.html">1:1 Coaching</a></li>
+      <li><a href="index.html#about">About</a></li>
+    </ul>
+    <a href="mailto:dirk@integrationgym.org" class="nav-cta">Email Dirk</a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div class="page-header-inner">
+      <span class="eyebrow">Barefoot Shoes</span>
+      <h1>Why I've worn Xero Shoes for 15 years</h1>
+      <p class="page-intro">Feet are designed amazingly well — if we use them and don't mess with our mechanics. That's why I went with barefoot shoes. They don't mess up our body mechanics.</p>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <section class="content-section">
+    <div class="content-inner">
+      <h2>How I found Xero Shoes</h2>
+      
+      <p>I met Steven Sashen, the founder of Xero Shoes, when he was just starting to sell DIY barefoot sandal kits. He sized me up and I've been wearing Xero Shoes ever since.</p>
+
+      <p>I've worn their sandals backpacking parts of the Pacific Crest Trail and elsewhere. The Alpines work in the snow — they're my winter outdoor work shoes. The Speed Force II is what I run in. These aren't fashion choices. They're functional tools that let your feet work the way they're designed to work.</p>
+
+      <h2>What I wear</h2>
+
+      <div class="shoe-grid">
+        <div class="shoe-card">
+          <h3>Prio</h3>
+          <p>Everyday casual shoe. Minimal cushioning, wide toe box, flexible sole. This is what I wear most days when I'm not running or hiking.</p>
+          <a href="[AFFILIATE_LINK_PLACEHOLDER]" class="shoe-link">View Prio →</a>
+        </div>
+
+        <div class="shoe-card">
+          <h3>Speed Force II</h3>
+          <p>Running shoe. Light, responsive, zero drop. If you're transitioning to barefoot running, start slow — your feet and calves will need time to adapt.</p>
+          <a href="[AFFILIATE_LINK_PLACEHOLDER]" class="shoe-link">View Speed Force II →</a>
+        </div>
+
+        <div class="shoe-card">
+          <h3>Genesis Sandal</h3>
+          <p>Classic minimalist sandal. I've worn these on long backpacking trips including sections of the PCT. They hold up and your feet don't suffer.</p>
+          <a href="[AFFILIATE_LINK_PLACEHOLDER]" class="shoe-link">View Genesis →</a>
+        </div>
+
+        <div class="shoe-card">
+          <h3>Alpine</h3>
+          <p>Winter boot. Insulated, waterproof, still zero drop with a wide toe box. These work in snow and cold — my go-to for winter outdoor work.</p>
+          <a href="[AFFILIATE_LINK_PLACEHOLDER]" class="shoe-link">View Alpine →</a>
+        </div>
+      </div>
+
+      <h2>Why barefoot matters</h2>
+
+      <p>Your feet are your foundation. Literally. They're packed with proprioceptors — sensory receptors that tell your brain where you are in space and how to adjust your posture and movement.</p>
+
+      <p>When you wear shoes with elevated heels, narrow toe boxes, and stiff soles, you're blocking that sensory input and forcing your body to compensate. Those compensations ripple up through your ankles, knees, hips, spine.</p>
+
+      <p>After 30+ years working with bodies in chiropractic practice, I saw this pattern constantly: people with chronic pain, postural dysfunction, movement restrictions — and feet that had been shaped by their shoes instead of the other way around.</p>
+
+      <p>Barefoot shoes let your feet work. Wide toe box so your toes can spread. Zero drop so your heel isn't elevated. Thin, flexible sole so you can feel the ground and your proprioceptors can do their job.</p>
+
+      <p>It's not complicated. Just let your body work the way it's designed to work.</p>
+
+      <h2>Transitioning to barefoot shoes</h2>
+
+      <p>If you've been wearing conventional shoes your whole life, don't just switch overnight. Your feet, ankles, and calves need time to adapt.</p>
+
+      <p>Start by wearing barefoot shoes for short periods — maybe an hour a day. Gradually increase. Pay attention to any soreness in your calves or feet. That's normal as your muscles adapt to working in new ways.</p>
+
+      <p>Walk barefoot when you can. Around the house, in the yard, on the beach. Let your feet remember what they're capable of.</p>
+
+      <p>If you're running, the transition is even more important. Start with short distances, slower paces. Your calves and Achilles tendons will be doing work they haven't done in years. Respect that process.</p>
+
+      <div class="info-box">
+        <p><strong>Note:</strong> These are affiliate links. If you purchase through them, I receive a small commission at no cost to you. I recommend these shoes because I've worn them for 15 years, not because of the affiliate relationship. But if you're going to buy them anyway, I appreciate you using these links.</p>
+      </div>
+
+      <p>Questions about barefoot shoes? Email me at <a href="mailto:dirk@integrationgym.org">dirk@integrationgym.org</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">The Integration Gym</span>
+    <span class="footer-loc">North of Ballard · Seattle, WA</span>
+  </footer>
+
+</body>
+</html>

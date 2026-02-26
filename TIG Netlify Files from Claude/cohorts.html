@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>March Cohort — The Integration Gym</title>
+  <meta name="description" content="Pilot cohort starting March 5th. Six Thursday evenings, north of Ballard. Small group, application required. $295–345.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0e0e0c;
+      --surface: #161614;
+      --border: rgba(255,255,255,0.08);
+      --text: #e8e4dc;
+      --muted: #8a8578;
+      --accent: #c9a96e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.4rem 3rem;
+      background: rgba(14,14,12,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    .page-header {
+      padding: 10rem 3rem 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header-inner { max-width: 700px; }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em { font-style: italic; color: var(--accent); }
+
+    .page-intro {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    section { padding: 6rem 3rem; }
+
+    .section-inner { max-width: 960px; margin: 0 auto; }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .sticky-sidebar {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .sidebar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 2.5rem;
+    }
+
+    .sidebar-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    .detail-row:last-of-type { border-bottom: none; }
+
+    .detail-key { color: var(--muted); }
+    .detail-val { color: var(--text); text-align: right; }
+
+    .price-big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin: 2rem 0 0.5rem;
+    }
+
+    .price-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .btn-primary {
+      display: block;
+      padding: 0.9rem 2rem;
+      background: var(--accent);
+      color: var(--bg);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      text-align: center;
+      margin-bottom: 0.8rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover { opacity: 0.88; }
+
+    .btn-ghost {
+      display: block;
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-align: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .main-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      margin-bottom: 1.2rem;
+      margin-top: 3.5rem;
+      color: var(--text);
+    }
+
+    .main-content h2:first-child { margin-top: 0; }
+
+    .main-content p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+
+    .main-content strong { color: var(--text); font-weight: 400; }
+
+    .session-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .session-list li {
+      display: flex;
+      gap: 1.5rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+
+    .session-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--accent);
+      min-width: 2rem;
+    }
+
+    .session-info { color: var(--muted); font-size: 0.9rem; }
+    .session-date { color: var(--text); display: block; margin-bottom: 0.2rem; font-size: 0.82rem; letter-spacing: 0.05em; }
+
+    .faq-item {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+    }
+
+    .faq-a {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    footer {
+      padding: 2rem 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .footer-loc {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      .page-header { padding: 8rem 1.5rem 3rem; }
+      section { padding: 4rem 1.5rem; }
+      .content-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .sticky-sidebar { position: static; }
+      footer { flex-direction: column; gap: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">The Integration Gym</a>
+    <ul class="nav-links">
+      <li><a href="index.html#what">The Work</a></li>
+      <li><a href="cohorts.html">March Cohort</a></li>
+      <li><a href="coaching.html">1:1 Coaching</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="eyebrow">Pilot Cohort · Now Forming</span>
+      <h1>Six weeks.<br><em>Thursday evenings.</em><br>Starting March 5th.</h1>
+      <p class="page-intro">A small, structured relational practice group. Eight people maximum. North of Ballard, Seattle. This is the first Integration Gym cohort — an intentionally intimate container.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="section-inner">
+      <div class="content-grid">
+
+        <!-- SIDEBAR -->
+        <div class="sticky-sidebar">
+          <div class="sidebar-card">
+            <span class="sidebar-label">Logistics</span>
+
+            <div class="detail-row">
+              <span class="detail-key">Starts</span>
+              <span class="detail-val">March 5, 2026</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Day</span>
+              <span class="detail-val">Thursdays</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Time</span>
+              <span class="detail-val">7:00–9:00 PM</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Sessions</span>
+              <span class="detail-val">6 weeks</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Group size</span>
+              <span class="detail-val">6–8 people</span>
+            </div>
+            <div class="detail-row">
+              <span class="detail-key">Location</span>
+              <span class="detail-val">North of Ballard</span>
+            </div>
+
+            <div class="price-big">$295</div>
+            <div class="price-note">Sliding scale to $345 based on capacity</div>
+
+            <a href="/cdn-cgi/l/email-protection#95f1fce7fed5fcfbe1f0f2e7f4e1fcfafbf2ecf8bbfae7f2aae6e0f7fff0f6e1a8d8f4e7f6fdb5d6fafdfae7e1b5771501b5d6fafbe6e0f9e1f4e1fcfafbb5c7f0e4e0f0e6e1" class="btn-primary">Request a conversation</a>
+            <a href="index.html#contact" class="btn-ghost">Ask a question</a>
+          </div>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+
+          <h2>What actually happens in a session</h2>
+          <p>Each two-hour session follows a consistent structure. We begin with a brief centering, then move into relational practice exercises designed to surface how each person's self-concept operates under mild pressure.</p>
+          <p>These aren't sharing circles or processing sessions. They're structured encounters where <strong>patterns become observable in real time</strong> — where you can feel the pull to perform, manage, deflect, or disappear, and simultaneously witness that pull happening in your body, in the room.</p>
+          <p>The facilitation holds the container. The group provides the relational field. The work happens in the gap between stimulus and response — the moment before you do the thing you always do.</p>
+
+          <h2>The six sessions</h2>
+          <ul class="session-list">
+            <li>
+              <span class="session-num">01</span>
+              <span class="session-info">
+                <span class="session-date">March 5</span>
+                Establishing the container. Introductions that aren't introductions — first contact with the group as a relational field.
+              </span>
+            </li>
+            <li>
+              <span class="session-num">02</span>
+              <span class="session-info">
+                <span class="session-date">March 12</span>
+                First contact with pattern. Noticing the self-concept's opening moves.
+              </span>
+            </li>
+            <li>
+              <span class="session-num">03</span>
+              <span class="session-info">
+                <span class="session-date">March 19</span>
+                Deepening. Working with what's been showing up. The group begins to know itself.
+              </span>
+            </li>
+            <li>
+              <span class="session-num">04</span>
+              <span class="session-info">
+                <span class="session-date">March 26</span>
+                Friction. This is where the real work often begins — comfort has been established enough for the protective patterns to relax slightly.
+              </span>
+            </li>
+            <li>
+              <span class="session-num">05</span>
+              <span class="session-info">
+                <span class="session-date">April 2</span>
+                Integration. Working with what's been witnessed. What has loosened; what hasn't.
+              </span>
+            </li>
+            <li>
+              <span class="session-num">06</span>
+              <span class="session-info">
+                <span class="session-date">April 9</span>
+                Closing. What continues. Next steps for those moving into full cohorts or 1:1 work.
+              </span>
+            </li>
+          </ul>
+
+          <h2>Why a pilot</h2>
+          <p>This is the first Integration Gym cohort. Calling it a pilot is honest — the structure is refined, the approach is grounded in 30+ years of body and relational work, but a first cohort is still a first cohort. The group that shows up for this will have something the later groups won't: direct influence on how the work develops.</p>
+          <p>The lower price reflects that reality. It's not charity pricing. It's the accurate cost of being early.</p>
+
+          <h2>The application process</h2>
+          <p>There's no application form. There's a conversation — about 20 minutes — where we figure out if this container makes sense for you right now.</p>
+          <p>What I'm looking for: some history of inner work, genuine readiness to be in a group rather than work solo, and the ability to commit to all six sessions. <strong>Missing sessions breaks the relational container for everyone.</strong></p>
+          <p>What I'm not looking for: credentials, a specific modality background, or any particular level of psychological sophistication. Some of the most ready people I know would never describe themselves as "into personal development."</p>
+
+          <h2>Frequently asked</h2>
+          <div class="faq-item">
+            <div class="faq-q">Is this therapy?</div>
+            <div class="faq-a">No. There's no diagnosis, treatment, or clinical relationship. I'm a facilitator, not a therapist. If you're in active mental health crisis, this isn't the right container right now.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Do I need plant medicine experience?</div>
+            <div class="faq-a">No. It's one pathway that tends to create readiness for this kind of work, but it's not required. What matters is that you've done enough inner work to know insight doesn't automatically produce change.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">What if I can't make a session?</div>
+            <div class="faq-a">Missing one session is workable. Consistent attendance is the commitment. If your schedule makes six consecutive Thursdays genuinely impossible, wait for a future cohort where the timing works.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">Is this only for men?</div>
+            <div class="faq-a">No. This cohort is mixed-gender. Future cohorts may be gender-specific based on participant interest.</div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-q">What comes after?</div>
+            <div class="faq-a">Full 12-week cohorts begin in spring 2026. Some people move into 1:1 coaching. Some take a break and return. There's no prescribed next step — though most people find that six weeks opens something they want to continue working with.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">The Integration Gym</span>
+    <
