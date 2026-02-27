@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>March Cohort — The Integration Gym</title>
-  <meta name="description" content="Pilot cohort starting March 5th. Six Thursday evenings, north of Ballard. Small group, application required. $295–345.">
+  <meta name="description" content="Pilot cohort starting March 12th. Five Thursday evenings, north of Ballard. Small group, application required. $295–345.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -22,8 +22,8 @@
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--text);
+      background: #0e0e0c;
+      color: #e8e4dc;
       font-family: 'Jost', sans-serif;
       font-weight: 300;
       line-height: 1.7;
@@ -40,7 +40,7 @@
       padding: 1.4rem 3rem;
       background: rgba(14,14,12,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #ddd9d2;
     }
 
     .nav-logo {
@@ -49,24 +49,24 @@
       font-weight: 400;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--text);
+      color: #e8e4dc;
       text-decoration: none;
     }
 
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
-      color: var(--muted);
+      color: #8a8578;
       text-decoration: none;
       font-size: 0.78rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { color: #c9a96e; }
 
     .page-header {
       padding: 10rem 3rem 5rem;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #ddd9d2;
     }
 
     .page-header-inner { max-width: 700px; }
@@ -75,7 +75,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: #c9a96e;
       margin-bottom: 1.5rem;
       display: block;
     }
@@ -88,10 +88,10 @@
       margin-bottom: 1.5rem;
     }
 
-    h1 em { font-style: italic; color: var(--accent); }
+    h1 em { font-style: italic; color: #c9a96e; }
 
     .page-intro {
-      color: var(--muted);
+      color: #8a8578;
       font-size: 1rem;
       max-width: 560px;
       line-height: 1.8;
@@ -114,8 +114,8 @@
     }
 
     .sidebar-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: #161614;
+      border: 1px solid #ddd9d2;
       padding: 2.5rem;
     }
 
@@ -123,7 +123,7 @@
       font-size: 0.68rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: #8a8578;
       margin-bottom: 2rem;
       display: block;
     }
@@ -132,35 +132,35 @@
       display: flex;
       justify-content: space-between;
       padding: 1rem 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #ddd9d2;
       font-size: 0.88rem;
     }
 
     .detail-row:last-of-type { border-bottom: none; }
 
-    .detail-key { color: var(--muted); }
-    .detail-val { color: var(--text); text-align: right; }
+    .detail-key { color: #8a8578; }
+    .detail-val { color: #e8e4dc; text-align: right; }
 
     .price-big {
       font-family: 'Cormorant Garamond', serif;
       font-size: 3rem;
       font-weight: 300;
-      color: var(--accent);
+      color: #c9a96e;
       line-height: 1;
       margin: 2rem 0 0.5rem;
     }
 
     .price-note {
       font-size: 0.78rem;
-      color: var(--muted);
+      color: #8a8578;
       margin-bottom: 2rem;
     }
 
     .btn-primary {
       display: block;
       padding: 0.9rem 2rem;
-      background: var(--accent);
-      color: var(--bg);
+      background: #c9a96e;
+      color: #f5f2ed;
       text-decoration: none;
       font-size: 0.78rem;
       letter-spacing: 0.14em;
@@ -176,8 +176,8 @@
     .btn-ghost {
       display: block;
       padding: 0.9rem 2rem;
-      border: 1px solid var(--border);
-      color: var(--muted);
+      border: 1px solid #ddd9d2;
+      color: #8a8578;
       text-decoration: none;
       font-size: 0.78rem;
       letter-spacing: 0.14em;
@@ -186,7 +186,7 @@
       transition: border-color 0.2s, color 0.2s;
     }
 
-    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-ghost:hover { border-color: #c9a96e; color: #c9a96e; }
 
     .main-content h2 {
       font-family: 'Cormorant Garamond', serif;
@@ -194,19 +194,19 @@
       font-weight: 300;
       margin-bottom: 1.2rem;
       margin-top: 3.5rem;
-      color: var(--text);
+      color: #e8e4dc;
     }
 
     .main-content h2:first-child { margin-top: 0; }
 
     .main-content p {
-      color: var(--muted);
+      color: #8a8578;
       margin-bottom: 1.2rem;
       font-size: 0.95rem;
       line-height: 1.85;
     }
 
-    .main-content strong { color: var(--text); font-weight: 400; }
+    .main-content strong { color: #e8e4dc; font-weight: 400; }
 
     .session-list {
       list-style: none;
@@ -217,23 +217,23 @@
       display: flex;
       gap: 1.5rem;
       padding: 1.2rem 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #ddd9d2;
       align-items: baseline;
     }
 
     .session-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.2rem;
-      color: var(--accent);
+      color: #c9a96e;
       min-width: 2rem;
     }
 
-    .session-info { color: var(--muted); font-size: 0.9rem; }
-    .session-date { color: var(--text); display: block; margin-bottom: 0.2rem; font-size: 0.82rem; letter-spacing: 0.05em; }
+    .session-info { color: #8a8578; font-size: 0.9rem; }
+    .session-date { color: #e8e4dc; display: block; margin-bottom: 0.2rem; font-size: 0.82rem; letter-spacing: 0.05em; }
 
     .faq-item {
       padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #ddd9d2;
     }
 
     .faq-q {
@@ -241,18 +241,18 @@
       font-size: 1.2rem;
       font-weight: 400;
       margin-bottom: 0.8rem;
-      color: var(--text);
+      color: #e8e4dc;
     }
 
     .faq-a {
-      color: var(--muted);
+      color: #8a8578;
       font-size: 0.92rem;
       line-height: 1.8;
     }
 
     footer {
       padding: 2rem 3rem;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid #ddd9d2;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -262,19 +262,80 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 0.9rem;
       letter-spacing: 0.1em;
-      color: var(--muted);
+      color: #8a8578;
     }
 
     .footer-loc {
       font-size: 0.75rem;
       letter-spacing: 0.1em;
-      color: var(--muted);
+      color: #8a8578;
       text-transform: uppercase;
     }
 
+    /* Hamburger menu for mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: #e8e4dc;
+      transition: all 0.3s;
+    }
+
     @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      
       nav { padding: 1.2rem 1.5rem; }
-      .nav-links { gap: 1.5rem; }
+      
+      .nav-logo {
+        max-width: 85px;
+        line-height: 1.1;
+        font-size: 0.7rem;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background: rgba(14,14,12,0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        gap: 0;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        pointer-events: none;
+        z-index: 99;
+      }
+      
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+      
+      .nav-links li {
+        padding: 1rem 3rem;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+      
+      .nav-links li:last-child { border-bottom: none; }
+      
+      .nav-links a {
+        line-height: 1.2;
+        font-size: 1rem;
+      }
+      
       .page-header { padding: 8rem 1.5rem 3rem; }
       section { padding: 4rem 1.5rem; }
       .content-grid { grid-template-columns: 1fr; gap: 3rem; }
@@ -287,6 +348,11 @@
 
   <nav>
     <a href="index.html" class="nav-logo">The Integration Gym</a>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <ul class="nav-links">
       <li><a href="index.html#what">The Work</a></li>
       <li><a href="cohorts.html">March Cohort</a></li>
@@ -299,7 +365,7 @@
   <div class="page-header">
     <div class="page-header-inner">
       <span class="eyebrow">Pilot Cohort · Now Forming</span>
-      <h1>Six weeks.<br><em>Thursday evenings.</em><br>Starting March 5th.</h1>
+      <h1>Five weeks.<br><em>Thursday evenings.</em><br>Starting March 12th.</h1>
       <p class="page-intro">A small, structured relational practice group. Eight people maximum. North of Ballard, Seattle. This is the first Integration Gym cohort — an intentionally intimate container.</p>
     </div>
   </div>
@@ -315,7 +381,7 @@
 
             <div class="detail-row">
               <span class="detail-key">Starts</span>
-              <span class="detail-val">March 5, 2026</span>
+              <span class="detail-val">March 12, 2026</span>
             </div>
             <div class="detail-row">
               <span class="detail-key">Day</span>
@@ -327,7 +393,7 @@
             </div>
             <div class="detail-row">
               <span class="detail-key">Sessions</span>
-              <span class="detail-val">6 weeks</span>
+              <span class="detail-val">5 weeks</span>
             </div>
             <div class="detail-row">
               <span class="detail-key">Group size</span>
@@ -354,48 +420,41 @@
           <p>These aren't sharing circles or processing sessions. They're structured encounters where <strong>patterns become observable in real time</strong> — where you can feel the pull to perform, manage, deflect, or disappear, and simultaneously witness that pull happening in your body, in the room.</p>
           <p>The facilitation holds the container. The group provides the relational field. The work happens in the gap between stimulus and response — the moment before you do the thing you always do.</p>
 
-          <h2>The six sessions</h2>
+          <h2>The five sessions</h2>
           <ul class="session-list">
             <li>
               <span class="session-num">01</span>
               <span class="session-info">
-                <span class="session-date">March 5</span>
+                <span class="session-date">March 12</span>
                 Establishing the container. Introductions that aren't introductions — first contact with the group as a relational field.
               </span>
             </li>
             <li>
               <span class="session-num">02</span>
               <span class="session-info">
-                <span class="session-date">March 12</span>
+                <span class="session-date">March 19</span>
                 First contact with pattern. Noticing the self-concept's opening moves.
               </span>
             </li>
             <li>
               <span class="session-num">03</span>
               <span class="session-info">
-                <span class="session-date">March 19</span>
+                <span class="session-date">March 26</span>
                 Deepening. Working with what's been showing up. The group begins to know itself.
               </span>
             </li>
             <li>
               <span class="session-num">04</span>
               <span class="session-info">
-                <span class="session-date">March 26</span>
+                <span class="session-date">April 2</span>
                 Friction. This is where the real work often begins — comfort has been established enough for the protective patterns to relax slightly.
               </span>
             </li>
             <li>
               <span class="session-num">05</span>
               <span class="session-info">
-                <span class="session-date">April 2</span>
-                Integration. Working with what's been witnessed. What has loosened; what hasn't.
-              </span>
-            </li>
-            <li>
-              <span class="session-num">06</span>
-              <span class="session-info">
                 <span class="session-date">April 9</span>
-                Closing. What continues. Next steps for those moving into full cohorts or 1:1 work.
+                Integration. Working with what's been witnessed. What has loosened; what hasn't.
               </span>
             </li>
           </ul>
@@ -406,7 +465,7 @@
 
           <h2>The application process</h2>
           <p>There's no application form. There's a conversation — about 20 minutes — where we figure out if this container makes sense for you right now.</p>
-          <p>What I'm looking for: some history of inner work, genuine readiness to be in a group rather than work solo, and the ability to commit to all six sessions. <strong>Missing sessions breaks the relational container for everyone.</strong></p>
+          <p>What I'm looking for: some history of inner work, genuine readiness to be in a group rather than work solo, and the ability to commit to all five sessions. <strong>Missing sessions breaks the relational container for everyone.</strong></p>
           <p>What I'm not looking for: credentials, a specific modality background, or any particular level of psychological sophistication. Some of the most ready people I know would never describe themselves as "into personal development."</p>
 
           <h2>Frequently asked</h2>
@@ -420,7 +479,7 @@
           </div>
           <div class="faq-item">
             <div class="faq-q">What if I can't make a session?</div>
-            <div class="faq-a">Missing one session is workable. Consistent attendance is the commitment. If your schedule makes six consecutive Thursdays genuinely impossible, wait for a future cohort where the timing works.</div>
+            <div class="faq-a">Missing one session is workable. Consistent attendance is the commitment. If your schedule makes five consecutive Thursdays genuinely impossible, wait for a future cohort where the timing works.</div>
           </div>
           <div class="faq-item">
             <div class="faq-q">Is this only for men?</div>
@@ -428,7 +487,7 @@
           </div>
           <div class="faq-item">
             <div class="faq-q">What comes after?</div>
-            <div class="faq-a">Full 12-week cohorts begin in spring 2026. Some people move into 1:1 coaching. Some take a break and return. There's no prescribed next step — though most people find that six weeks opens something they want to continue working with.</div>
+            <div class="faq-a">Full 12-week cohorts begin in spring 2026. Some people move into 1:1 coaching. Some take a break and return. There's no prescribed next step — though most people find that five weeks opens something they want to continue working with.</div>
           </div>
 
         </div>
@@ -438,4 +497,28 @@
 
   <footer>
     <span class="footer-logo">The Integration Gym</span>
-    <
+    <span class="footer-loc">North of Ballard · Seattle, WA</span>
+  </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+      
+      // Close menu when clicking a link
+      const links = navLinks.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+        });
+      });
+    }
+  </script>
+
+</body>
+</html><
