@@ -95,26 +95,28 @@
 
     .dropdown-menu {
       position: absolute;
-      top: calc(100% + 0.75rem);
+      top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(245,242,237,0.98);
-      backdrop-filter: blur(10px);
-      border: 1px solid #ddd9d2;
-      border-top: 2px solid #b8860b;
+      padding-top: 0.75rem;
       min-width: 200px;
       list-style: none;
       opacity: 0;
       visibility: hidden;
-      transform: translateX(-50%) translateY(-6px);
-      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+      transition: opacity 0.2s ease, visibility 0.2s;
       pointer-events: none;
+    }
+
+    .dropdown-inner {
+      background: rgba(245,242,237,0.98);
+      backdrop-filter: blur(10px);
+      border: 1px solid #ddd9d2;
+      border-top: 2px solid #b8860b;
     }
 
     .nav-dropdown:hover .dropdown-menu {
       opacity: 1;
       visibility: visible;
-      transform: translateX(-50%) translateY(0);
       pointer-events: all;
     }
 
@@ -691,9 +693,11 @@
       <li class="nav-dropdown">
         <a href="#">Get Started</a>
         <ul class="dropdown-menu">
+          <div class="dropdown-inner">
           <li><a href="cohorts.html">March Cohort</a></li>
           <li><a href="tigd-weekend-workshop.html">May Workshop</a></li>
           <li><a href="coaching.html">1:1 Coaching</a></li>
+          </div>
         </ul>
       </li>
       <li><a href="#about">About</a></li>
@@ -868,7 +872,7 @@
       <h2 class="contact-headline">The first step is a conversation</h2>
       <p class="contact-sub">20 minutes. I'll ask you a few things. You ask me whatever you need. We figure out together whether this is the right fit, right now.</p>
       <br>
-      <a href="mailto:dirk@integrationgym.org" class="contact-email">dirk@integrationgym.org</a>
+      <a href="/cdn-cgi/l/email-protection#9df9f4eff6ddf4f3e9f8faeffce9f4f2f3fae4f0b3f2effa" class="contact-email"><span class="__cf_email__" data-cfemail="e3878a9188a38a8d9786849182978a8c8d849a8ecd8c9184">[email&#160;protected]</span></a>
       <br><br>
       <p class="contact-alt">Or <a href="cohorts.html">read the full March cohort details</a> first.</p>
     </div>
@@ -879,7 +883,7 @@
     <span class="footer-loc">North of Ballard · Seattle, WA</span>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -904,15 +908,3 @@
     if (hamburger && navCenter) {
       hamburger.addEventListener('click', () => {
         navCenter.classList.toggle('active');
-      });
-
-      const navLinks = navCenter.querySelectorAll('a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          navCenter.classList.remove('active');
-        });
-      });
-    }
-  </script>
-</body>
-</html>
