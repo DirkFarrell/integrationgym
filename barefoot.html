@@ -23,8 +23,8 @@
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--dark);
+      background: #f5f2ed;
+      color: #1a1a18;
       font-family: 'DM Sans', sans-serif;
       font-weight: 400;
       font-size: 17px;
@@ -43,7 +43,7 @@
       padding: 1.1rem 3rem;
       background: rgba(245,242,237,0.96);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #ddd9d2;
     }
 
     .nav-logo {
@@ -52,7 +52,7 @@
       font-size: 0.95rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--dark);
+      color: #1a1a18;
       text-decoration: none;
     }
 
@@ -63,19 +63,19 @@
     }
 
     .nav-center a {
-      color: var(--muted);
+      color: #6b6860;
       text-decoration: none;
       font-size: 0.88rem;
       font-weight: 500;
       letter-spacing: 0.03em;
       transition: color 0.2s;
     }
-    .nav-center a:hover { color: var(--accent); }
+    .nav-center a:hover { color: #b8860b; }
 
     .nav-cta {
       display: inline-block;
       padding: 0.6rem 1.4rem;
-      background: var(--accent);
+      background: #b8860b;
       color: #fff;
       text-decoration: none;
       font-size: 0.8rem;
@@ -89,8 +89,8 @@
     /* PAGE HEADER */
     .page-header {
       padding: 10rem 3rem 5rem;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
+      background: #ffffff;
+      border-bottom: 1px solid #ddd9d2;
     }
 
     .page-header-inner { max-width: 800px; margin: 0 auto; }
@@ -100,7 +100,7 @@
       font-weight: 600;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: #b8860b;
       margin-bottom: 1.5rem;
       display: block;
     }
@@ -111,11 +111,11 @@
       font-weight: 400;
       line-height: 1.15;
       margin-bottom: 1.5rem;
-      color: var(--dark);
+      color: #1a1a18;
     }
 
     .page-intro {
-      color: var(--mid);
+      color: #3d3d3a;
       font-size: 1.12rem;
       line-height: 1.8;
       max-width: 680px;
@@ -123,8 +123,8 @@
 
     /* CONTENT */
     section { padding: 5rem 3rem; }
-    .content-section { background: var(--bg); }
-    .content-section:nth-of-type(even) { background: var(--white); }
+    .content-section { background: #f5f2ed; }
+    .content-section:nth-of-type(even) { background: #ffffff; }
 
     .content-inner { max-width: 720px; margin: 0 auto; }
 
@@ -134,22 +134,22 @@
       font-weight: 400;
       line-height: 1.25;
       margin: 3.5rem 0 1.5rem 0;
-      color: var(--dark);
+      color: #1a1a18;
     }
 
     h2:first-child { margin-top: 0; }
 
     p {
       font-size: 1.05rem;
-      color: var(--mid);
+      color: #3d3d3a;
       line-height: 1.85;
       margin-bottom: 1.2rem;
     }
 
-    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a { color: #b8860b; text-decoration: none; font-weight: 500; }
     a:hover { text-decoration: underline; }
 
-    strong { color: var(--dark); font-weight: 600; }
+    strong { color: #1a1a18; font-weight: 600; }
 
     /* SHOE GRID */
     .shoe-grid {
@@ -160,30 +160,30 @@
     }
 
     .shoe-card {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1px solid #ddd9d2;
       padding: 2rem;
-      border-top: 3px solid var(--accent);
+      border-top: 3px solid #b8860b;
     }
 
     .shoe-card h3 {
       font-family: 'DM Sans', sans-serif;
       font-size: 1.2rem;
       font-weight: 600;
-      color: var(--dark);
+      color: #1a1a18;
       margin-bottom: 1rem;
     }
 
     .shoe-card p {
       font-size: 1rem;
-      color: var(--mid);
+      color: #3d3d3a;
       line-height: 1.75;
       margin-bottom: 1.5rem;
     }
 
     .shoe-link {
       display: inline-block;
-      color: var(--accent);
+      color: #b8860b;
       font-weight: 500;
       font-size: 0.95rem;
       text-decoration: none;
@@ -195,10 +195,10 @@
 
     /* INFO BOX */
     .info-box {
-      background: var(--dark);
+      background: #1a1a18;
       padding: 2.5rem;
       margin: 3rem 0;
-      border-left: 4px solid var(--accent);
+      border-left: 4px solid #b8860b;
     }
 
     .info-box p {
@@ -211,26 +211,89 @@
     /* FOOTER */
     footer {
       padding: 3rem 3rem 2rem;
-      background: var(--white);
-      border-top: 1px solid var(--border);
+      background: #ffffff;
+      border-top: 1px solid #ddd9d2;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 0.85rem;
-      color: var(--muted);
+      color: #6b6860;
     }
 
     .footer-logo {
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--dark);
+      color: #1a1a18;
+    }
+
+    /* Hamburger menu for mobile */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+    }
+    
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: #1a1a18;
+      transition: all 0.3s;
     }
 
     /* MOBILE */
     @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      
       nav { padding: 1rem 1.5rem; }
-      .nav-center { display: none; }
+      
+      .nav-logo {
+        max-width: 85px;
+        line-height: 1.1;
+        font-size: 0.7rem;
+      }
+      
+      .nav-center {
+        position: fixed;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background: rgba(245,242,237,0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        gap: 0;
+        padding: 1.5rem 0;
+        border-bottom: 1px solid #ddd9d2;
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        pointer-events: none;
+        z-index: 99;
+      }
+      
+      .nav-center.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+      
+      .nav-center li {
+        padding: 1rem 3rem;
+        border-bottom: 1px solid #e8e5dd;
+      }
+      
+      .nav-center li:last-child { border-bottom: none; }
+      
+      .nav-center a {
+        line-height: 1.2;
+        font-size: 1rem;
+      }
+      
+      .nav-cta { display: none; }
+      
       .page-header { padding: 8rem 1.5rem 4rem; }
       section { padding: 4rem 1.5rem; }
       .shoe-grid { grid-template-columns: 1fr; }
@@ -242,6 +305,11 @@
 
   <nav>
     <a href="index.html" class="nav-logo">The Integration Gym</a>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <ul class="nav-center">
       <li><a href="index.html#gap">The Work</a></li>
       <li><a href="index.html#march">March Cohort</a></li>
@@ -331,6 +399,26 @@
     <span class="footer-logo">The Integration Gym</span>
     <span class="footer-loc">North of Ballard · Seattle, WA</span>
   </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navCenter = document.querySelector('.nav-center');
+    
+    if (hamburger && navCenter) {
+      hamburger.addEventListener('click', () => {
+        navCenter.classList.toggle('active');
+      });
+      
+      // Close menu when clicking a link
+      const navLinks = navCenter.querySelectorAll('a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navCenter.classList.remove('active');
+        });
+      });
+    }
+  </script>
 
 </body>
 </html>
