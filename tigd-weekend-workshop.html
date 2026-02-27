@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Way Out Is Through — The Integration Gym</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1c1a17;
+    --clay: #b85c38;
+    --warm-bg: #f5f0e8;
+    --parchment: #ede6d6;
+    --moss: #4a5240;
+    --dust: #9e9485;
+    --rule: #d4c9b0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--warm-bg);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(ellipse at 20% 50%, rgba(184,92,56,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(74,82,64,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: clamp(3rem, 8vw, 7rem) clamp(2rem, 8vw, 8rem);
+    position: relative;
+    z-index: 1;
+  }
+
+  .eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    max-width: 14ch;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.4s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--clay);
+  }
+
+  .hero-period {
+    color: var(--clay);
+  }
+
+  .hero-tagline {
+    margin-top: 2.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.6rem, 3.2vw, 2.5rem);
+    color: var(--moss);
+    max-width: 44ch;
+    line-height: 1.45;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.6s forwards;
+  }
+
+  .hero-meta {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 0.8s forwards;
+    border-top: 2px solid var(--rule);
+    border-bottom: 2px solid var(--rule);
+    padding: 2.5rem 0;
+    width: 100%;
+    max-width: 700px;
+  }
+
+  .meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-right: 3rem;
+    margin-right: 3rem;
+    border-right: 1px solid var(--rule);
+  }
+
+  .meta-item:last-child {
+    border-right: none;
+    padding-right: 0;
+    margin-right: 0;
+  }
+
+  .meta-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dust);
+  }
+
+  .meta-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .hero-cta {
+    margin-top: 3.5rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 1s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--clay);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: background 0.25s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--moss);
+    transform: translateY(-1px);
+  }
+
+  .hero-footer {
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(2rem, 8vw, 8rem);
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.9s ease 1.1s forwards;
+  }
+
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    color: var(--dust);
+  }
+
+  .spots {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--clay);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: clamp(4rem, 10vw, 8rem) clamp(2rem, 8vw, 8rem);
+  }
+
+  .rule {
+    width: 3rem;
+    height: 1px;
+    background: var(--clay);
+    margin-bottom: 2.5rem;
+  }
+
+  .section-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--dust);
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── OPENING ── */
+  .opening {
+    background: var(--parchment);
+  }
+
+  .opening-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .opening-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .opening-left h2 em {
+    font-style: italic;
+    color: var(--clay);
+  }
+
+  .opening-right p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #3a3630;
+    margin-bottom: 1.5rem;
+  }
+
+  .opening-right p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ── WHAT THIS IS ── */
+  .what {
+    background: var(--warm-bg);
+  }
+
+  .what-intro {
+    max-width: 60ch;
+    margin-bottom: 4rem;
+  }
+
+  .what-intro h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+
+  .what-intro p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #3a3630;
+  }
+
+  .pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+
+  .pillar {
+    padding: 2.5rem;
+    border-right: 1px solid var(--rule);
+    transition: background 0.2s;
+  }
+
+  .pillar:last-child { border-right: none; }
+
+  .pillar:hover {
+    background: var(--parchment);
+  }
+
+  .pillar-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .pillar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+
+  .pillar p {
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--dust);
+  }
+
+  /* ── NOT THIS ── */
+  .not-this {
+    background: var(--ink);
+    color: var(--parchment);
+  }
+
+  .not-this .rule { background: var(--clay); }
+
+  .not-this-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .not-this h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+    color: #f0e8d8;
+  }
+
+  .not-this p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #b8a98e;
+    margin-bottom: 1.25rem;
+  }
+
+  .not-this p strong {
+    color: var(--parchment);
+    font-weight: 400;
+  }
+
+  .distinction-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .distinction-list li {
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #b8a98e;
+  }
+
+  .distinction-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--clay);
+  }
+
+  .distinction-list li strong {
+    color: var(--parchment);
+    font-weight: 400;
+  }
+
+  /* ── SCHEDULE ── */
+  .schedule {
+    background: var(--parchment);
+  }
+
+  .schedule h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    line-height: 1.25;
+    margin-bottom: 3rem;
+  }
+
+  .days {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .day {
+    border-top: 2px solid var(--clay);
+    padding-top: 2rem;
+  }
+
+  .day-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--clay);
+    margin-bottom: 0.5rem;
+  }
+
+  .day-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .day-segments {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .segment {
+    display: flex;
+    gap: 1.5rem;
+    align-items: baseline;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .segment:last-child { border-bottom: none; }
+
+  .seg-time {
+    font-size: 0.75rem;
+    color: var(--dust);
+    min-width: 5rem;
+    letter-spacing: 0.05em;
+  }
+
+  .seg-label {
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  /* ── FOR YOU ── */
+  .for-you {
+    background: var(--warm-bg);
+  }
+
+  .for-you-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(3rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .for-you h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+
+  .for-you p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #3a3630;
+    margin-bottom: 1.25rem;
+  }
+
+  .recognitions {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+
+  .recognition {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--rule);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    color: var(--moss);
+    transition: background 0.2s, padding-left 0.2s;
+  }
+
+  .recognition:last-child { border-bottom: none; }
+  .recognition:hover {
+    background: var(--parchment);
+    padding-left: 2.5rem;
+  }
+
+  /* ── LOGISTICS ── */
+  .logistics {
+    background: var(--moss);
+    color: var(--parchment);
+  }
+
+  .logistics .rule { background: var(--parchment); opacity: 0.3; }
+
+  .logistics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .logistics-item {}
+
+  .logistics-item .meta-label {
+    color: rgba(237,230,214,0.5);
+    margin-bottom: 0.5rem;
+  }
+
+  .logistics-item .meta-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--parchment);
+    line-height: 1.4;
+  }
+
+  .logistics-note {
+    border-top: 1px solid rgba(237,230,214,0.15);
+    padding-top: 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .logistics-note p {
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: rgba(237,230,214,0.65);
+  }
+
+  .logistics-note strong {
+    color: var(--parchment);
+    font-weight: 400;
+  }
+
+  /* ── RIVER ── */
+  .river-section {
+    background: var(--parchment);
+  }
+
+  .river-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: clamp(3rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .river-left h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .river-left .subtitle {
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    color: var(--dust);
+    text-transform: uppercase;
+  }
+
+  .river-right p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #3a3630;
+    margin-bottom: 1.25rem;
+  }
+
+  .credentials {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .credential {
+    font-size: 0.85rem;
+    color: var(--dust);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .credential::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--clay);
+    font-size: 1.2rem;
+    line-height: 1;
+    top: 0.1rem;
+  }
+
+  /* ── APPLY ── */
+  .apply {
+    background: var(--warm-bg);
+    text-align: center;
+  }
+
+  .apply-inner {
+    max-width: 52ch;
+    margin: 0 auto;
+  }
+
+  .apply h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .apply h2 em {
+    font-style: italic;
+    color: var(--clay);
+  }
+
+  .apply p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: #3a3630;
+    margin-bottom: 2.5rem;
+  }
+
+  .apply-details {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: var(--parchment);
+    border: 1px solid var(--rule);
+  }
+
+  .apply-detail .meta-label { margin-bottom: 0.25rem; }
+
+  .apply .btn-primary {
+    font-size: 0.78rem;
+  }
+
+  .apply-small {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--dust);
+    line-height: 1.6;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 2.5rem clamp(2rem, 8vw, 8rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer .brand {
+    color: rgba(237,230,214,0.4);
+    font-size: 0.85rem;
+  }
+
+  footer a {
+    color: rgba(237,230,214,0.4);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+
+  footer a:hover { color: var(--parchment); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .opening-grid,
+    .not-this-grid,
+    .for-you-grid,
+    .river-grid,
+    .logistics-note,
+    .days {
+      grid-template-columns: 1fr;
+    }
+
+    .pillars {
+      grid-template-columns: 1fr;
+    }
+
+    .pillar {
+      border-right: none;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .pillar:last-child { border-bottom: none; }
+
+    .hero-meta { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">The Integration Gym &nbsp;·&nbsp; Seattle &nbsp;·&nbsp; May 2–3, 2026</p>
+    <h1 class="hero-title">The Way Out Is Through<span class="hero-period">.</span></h1>
+    <p class="hero-tagline">A two-day facilitated experience for people ready to be more at home in themselves — whatever the circumstances.</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Dates</span>
+        <span class="meta-value">May 2–3, 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Location</span>
+        <span class="meta-value">Seattle, WA</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Investment</span>
+        <span class="meta-value">$400</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Group Size</span>
+        <span class="meta-value">8 maximum</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#apply" class="btn-primary">Apply to Attend</a>
+    </div>
+  </div>
+  <div class="hero-footer">
+    <span class="brand">IntegrationGym.org</span>
+    <span class="spots">8 spots · Application required</span>
+  </div>
+</section>
+
+<!-- OPENING -->
+<section class="opening">
+  <div class="opening-grid">
+    <div class="opening-left">
+      <div class="rule"></div>
+      <h2>Something keeps <em>running.</em><br>You already know what it is.</h2>
+    </div>
+    <div class="opening-right">
+      <p>You've probably spent real time with yourself. Maybe years. Therapy, meditation, workshops, plant medicine, inner work of one kind or another. You have insight. You can name what you do. You can often see it happening in real time.</p>
+      <p>And still — the same loops. The same reactions. The same ways you disappear from yourself, or can't stop being too much of yourself, in the presence of other people. The knowing hasn't quite become different.</p>
+      <p>That's not a failure of effort. It's a clue about where the work actually needs to happen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT THIS IS -->
+<section class="what">
+  <div class="what-intro">
+    <div class="section-label">What This Is</div>
+    <h2>The patterns formed in relationship.<br>They can only shift there too.</h2>
+    <p>This two-day workshop is a structured, facilitated space for experiencing yourself differently — not just understanding yourself better. The work happens in the room, in real time, with others present. Because that's where it actually lives.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-number">01</div>
+      <h3>Discovery</h3>
+      <p>Seeing what's actually running — the patterns, the inner narratives, the ways you arrive in a room already braced. Not as a concept. As lived experience.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-number">02</div>
+      <h3>Presence</h3>
+      <p>Learning to stay with yourself while genuinely being with others. The thing most people experience as impossible — holding your own ground and staying in real contact simultaneously.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-number">03</div>
+      <h3>Movement</h3>
+      <p>Discovery itself shifts things. When a pattern is truly seen — not analyzed, but seen — something becomes available that wasn't before. This is the work.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NOT THIS -->
+<section class="not-this">
+  <div class="not-this-grid">
+    <div>
+      <div class="rule"></div>
+      <h2>What this isn't.</h2>
+      <p>Worth being precise about, because the landscape is cluttered with things that look adjacent.</p>
+      <ul class="distinction-list">
+        <li><strong>Not therapy.</strong> No diagnoses, no treatment, no clinical relationship. Dirk is a facilitator, not a clinician.</li>
+        <li><strong>Not a lecture.</strong> There's no curriculum to transmit. The work is experiential — it happens in the room, not from the front of it.</li>
+        <li><strong>Not a breakthrough weekend.</strong> High-intensity peak experiences aren't the mechanism here. Real change is slower and less glamorous than that.</li>
+        <li><strong>Not a sharing circle.</strong> This isn't turn-based witnessing. It's structured contact — between people, in real time.</li>
+        <li><strong>Not for people in acute crisis.</strong> This work asks something of you. Some stability is needed to do it well.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="rule"></div>
+      <h2>What makes it different.</h2>
+      <p>Most approaches to inner work operate at the level of understanding. You come to know your patterns better. You develop tools to manage them. You have peak experiences that open something for a while.</p>
+      <p>TIGD works at a different level. The premise is that <strong>patterns formed in relationship can only be re-patterned in relationship</strong> — in the live presence of other nervous systems, while the pattern is actually running.</p>
+      <p>The other people in the room aren't witnesses to your process. They're the field in which the process becomes possible. That's the structural difference. That's what this weekend is built on.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOR YOU -->
+<section class="for-you">
+  <div class="for-you-grid">
+    <div>
+      <div class="rule"></div>
+      <h2>Is this for you?</h2>
+      <p>This isn't for everyone, and it's worth being honest about that. Some things to sit with before applying.</p>
+      <p>You don't need to have done years of inner work. You do need to be genuinely curious about what's running in you — and willing to be in a room where that becomes visible.</p>
+      <p>Dirk will have a brief conversation with everyone before confirming participation. Not an evaluation — a check for fit, in both directions.</p>
+    </div>
+    <div class="recognitions">
+      <div class="recognition">"I know what I do. I just can't seem to stop doing it."</div>
+      <div class="recognition">"I lose myself around certain people. I don't know why."</div>
+      <div class="recognition">"I can hold it together everywhere but in my closest relationships."</div>
+      <div class="recognition">"I feel like too much — or like I've made myself too small."</div>
+      <div class="recognition">"I've done a lot of work on myself. Something is still stuck."</div>
+      <div class="recognition">"I want to feel more at home in my own skin, with other people around."</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGISTICS -->
+<section class="logistics">
+  <div class="section-label" style="color:rgba(237,230,214,0.4)">Details</div>
+  <div class="logistics-grid">
+    <div class="logistics-item">
+      <div class="meta-label">Dates</div>
+      <div class="meta-value">Saturday May 2 &<br>Sunday May 3, 2026</div>
+    </div>
+    <div class="logistics-item">
+      <div class="meta-label">Hours</div>
+      <div class="meta-value">Sat 9am–5pm<br>Sun 9am–4pm</div>
+    </div>
+    <div class="logistics-item">
+      <div class="meta-label">Location</div>
+      <div class="meta-value">Seattle, WA<br><span style="font-size:0.9rem; opacity:0.7;">Shared upon acceptance</span></div>
+    </div>
+    <div class="logistics-item">
+      <div class="meta-label">Group Size</div>
+      <div class="meta-value">8 participants<br>maximum</div>
+    </div>
+    <div class="logistics-item">
+      <div class="meta-label">Investment</div>
+      <div class="meta-value">$400<br>full weekend</div>
+    </div>
+    <div class="logistics-item">
+      <div class="meta-label">Food</div>
+      <div class="meta-value">Lunch & snacks<br>provided both days</div>
+    </div>
+  </div>
+  <div class="logistics-note">
+    <p><strong>What to bring:</strong> Comfortable clothes you can sit and move in. A journal if you like to write. Water bottle. Yourself — that's enough.</p>
+    <p><strong>Entry:</strong> Application plus a brief conversation with Dirk before confirming. Payment due upon confirmation. Full refund if you withdraw before May 1st.</p>
+  </div>
+</section>
+
+<!-- RIVER -->
+<section class="river-section">
+  <div class="river-grid">
+    <div class="river-left">
+      <div class="rule"></div>
+      <h2>Dirk Farrell</h2>
+      <p class="subtitle">Facilitator</p>
+      <div class="credentials">
+        <div class="credential">30 years chiropractic practice, north Seattle</div>
+        <div class="credential">2 years Hakomi somatic training</div>
+        <div class="credential">Men's and women's circle facilitation</div>
+        <div class="credential">Plant medicine integration work</div>
+        <div class="credential">50+ years personal inner awareness practice</div>
+      </div>
+    </div>
+    <div class="river-right">
+      <p>Thirty years of working with people's bodies taught Dirk something that chiropractic adjustment alone couldn't reach: the patterns in the body and the patterns in relationship were telling the same story.</p>
+      <p>The physical holding — the bracing, the collapse, the chronic tension — wasn't a physical problem. It was a relational one. Formed in the presence of other people. Requiring other people to be met differently.</p>
+      <p>That observation led to years of Hakomi training, work with men's and women's circles, and close attention to the gap that kept appearing: people doing genuine, committed inner work, and still showing up the same way in relationship.</p>
+      <p>Dirk's role in the room is not to teach, guide, or fix. It's to hold the container steady — and to notice what's actually happening before anyone else does.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="apply" id="apply">
+  <div class="apply-inner">
+    <div class="rule" style="margin: 0 auto 2.5rem;"></div>
+    <h2>Ready to find out<br>what's <em>through?</em></h2>
+    <p>Eight spots. A brief conversation before confirming. No evaluation of readiness — just a check that this is the right container for where you are right now.</p>
+    <div class="apply-details">
+      <div class="apply-detail meta-item">
+        <span class="meta-label">Investment</span>
+        <span class="meta-value">$400</span>
+      </div>
+      <div class="apply-detail meta-item">
+        <span class="meta-label">Location</span>
+        <span class="meta-value">Shared upon acceptance</span>
+      </div>
+      <div class="apply-detail meta-item">
+        <span class="meta-label">Spots Remaining</span>
+        <span class="meta-value">8 of 8</span>
+      </div>
+    </div>
+    <a href="/cdn-cgi/l/email-protection#91e3f8e7f4e3d1f8ffe5f4f6e3f0e5f8fefff6e8fcbffee3f6" class="btn-primary">Apply to Attend</a>
+    <p class="apply-small">Reach out at IntegrationGym.org or reply by email.<br>Dirk will follow up to schedule a short conversation.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="brand">The Integration Gym & Dojo &nbsp;·&nbsp; IntegrationGym.org</span>
+  <a href="/cdn-cgi/l/email-protection#5a28332c3f281a
