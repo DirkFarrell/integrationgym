@@ -74,18 +74,26 @@
       position: absolute;
       top: 100%; left: 50%;
       transform: translateX(-50%);
-      padding-top: 0.75rem;
+      padding-top: 0;
       min-width: 200px;
       list-style: none;
       opacity: 0; visibility: hidden;
       transition: opacity 0.2s ease, visibility 0.2s;
       pointer-events: none;
     }
+    .nav-dropdown::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0; right: 0;
+      height: 12px;
+    }
     .dropdown-inner {
       background: rgba(245,242,237,0.98);
       backdrop-filter: blur(10px);
       border: 1px solid #ddd9d2;
       border-top: 2px solid #b8860b;
+      margin-top: 8px;
     }
     .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; pointer-events: all; }
     .dropdown-menu li { border-bottom: 1px solid #e8e5dd; }
@@ -250,7 +258,7 @@
         align-items: flex-start;
       }
       .nav-center.active { display: flex; }
-      .nav-center li { padding: 1rem 3rem; border-bottom: 1px solid #e8e5dd; width: 100%; }
+      .nav-center li { padding: 0.75rem 2rem; border-bottom: 1px solid #e8e5dd; width: 100%; }
       .nav-center li:last-child { border-bottom: none; }
       .nav-center a { font-size: 1rem; line-height: 1.2; }
       .nav-dropdown > a::after { display: none; }
@@ -365,7 +373,19 @@
     <span>North of Ballard · Seattle, WA</span>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-    var hamburger = document.querySelector('.hamburger');
-    var navCenter = document.querySelector('.nav-center');
-    if (hamburger &&
+<script>
+  var hamburger = document.querySelector('.hamburger');
+  var navCenter = document.querySelector('.nav-center');
+  if (hamburger && navCenter) {
+    hamburger.addEventListener('click', function() {
+      navCenter.classList.toggle('active');
+    });
+    navCenter.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        navCenter.classList.remove('active');
+      });
+    });
+  }
+</script>
+</body>
+</html>
