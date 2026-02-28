@@ -19,37 +19,112 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    nav {
+        nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.4rem 3rem;
-      background: rgba(14,14,12,0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 1.1rem 3rem;
+      background: rgba(245,242,237,0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #ddd9d2;
     }
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #e8e4dc;
+      color: #1a1a18;
       text-decoration: none;
     }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      color: #8a8578;
+    .nav-center {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-center a {
+      color: #6b6860;
       text-decoration: none;
-      font-size: 0.78rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: #c9a96e; }
+    .nav-center a:hover { color: #b8860b; }
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; }
+    .nav-dropdown > a::after {
+      content: '';
+      display: inline-block;
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid #6b6860;
+      transition: transform 0.2s, border-top-color 0.2s;
+      margin-top: 1px;
+    }
+    .nav-dropdown:hover > a::after { transform: rotate(180deg); border-top-color: #b8860b; }
+    .nav-dropdown:hover > a { color: #b8860b; }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding-top: 0.75rem;
+      min-width: 200px;
+      list-style: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s;
+      pointer-events: none;
+    }
+    .dropdown-inner {
+      background: rgba(245,242,237,0.98);
+      backdrop-filter: blur(10px);
+      border: 1px solid #ddd9d2;
+      border-top: 2px solid #b8860b;
+    }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; pointer-events: all; }
+    .dropdown-menu li { border-bottom: 1px solid #e8e5dd; }
+    .dropdown-menu li:last-child { border-bottom: none; }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.85rem 1.4rem;
+      color: #3d3d3a;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      transition: color 0.2s, background 0.2s;
+    }
+    .dropdown-menu a:hover { color: #b8860b; background: rgba(184,134,11,0.04); }
+    .nav-cta {
+      display: inline-block;
+      padding: 0.6rem 1.4rem;
+      background: #b8860b;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: #9a7009; }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .hamburger span { display: block; width: 25px; height: 2px; background: #1a1a18; }
 
     .hamburger {
       display: none;
@@ -222,18 +297,26 @@
 </head>
 <body>
 
-  <nav>
+    <nav>
     <a href="index.html" class="nav-logo">The Integration Gym</a>
     <button class="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
-    <ul class="nav-links">
-      <li><a href="index.html#what">The Work</a></li>
-      <li><a href="cohorts.html">March Cohort</a></li>
-      <li><a href="tigd-weekend-workshop.html">May Workshop</a></li>
-      <li><a href="coaching.html">1:1 Coaching</a></li>
+    <ul class="nav-center">
+      <li><a href="index.html#gap">The Work</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Get Started</a>
+        <ul class="dropdown-menu">
+          <div class="dropdown-inner">
+            <li><a href="cohorts.html">March Cohort</a></li>
+            <li><a href="tigd-weekend-workshop.html">May Workshop</a></li>
+            <li><a href="coaching.html">1:1 Coaching</a></li>
+          </div>
+        </ul>
+      </li>
       <li><a href="index.html#about">About</a></li>
     </ul>
+    <a href="index.html#contact" class="nav-cta">Schedule a Call</a>
   </nav>
 
   <div class="page-header">
@@ -259,7 +342,7 @@
             <div class="detail-row"><span class="detail-key">Location</span><span class="detail-val">North of Ballard</span></div>
             <div class="price-big">$295</div>
             <div class="price-note">Sliding scale to $345 based on capacity</div>
-            <a href="mailto:dirk@integrationgym.org" class="btn-primary">Request a conversation</a>
+            <a href="/cdn-cgi/l/email-protection#5b3f3229301b32352f3e3c293a2f3234353c22367534293c" class="btn-primary">Request a conversation</a>
             <a href="index.html#contact" class="btn-ghost">Ask a question</a>
           </div>
         </div>
@@ -350,7 +433,7 @@
     <span class="footer-loc">North of Ballard · Seattle, WA</span>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     var hamburger = document.querySelector('.hamburger');
     var navLinks = document.querySelector('.nav-links');
     if (hamburger && navLinks) {
@@ -358,11 +441,4 @@
         navLinks.classList.toggle('active');
       });
       navLinks.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          navLinks.classList.remove('active');
-        });
-      });
-    }
-  </script>
-</body>
-</html>
+ 
