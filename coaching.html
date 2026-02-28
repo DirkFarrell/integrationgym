@@ -237,16 +237,6 @@
       nav { padding: 1rem 1.5rem; }
       .nav-logo { font-size: 0.7rem; line-height: 1.1; max-width: 85px; }
       .nav-cta { display: none; }
-      .nav-dropdown > a::after { display: none; }
-      .dropdown-menu {
-        position: static; transform: none;
-        opacity: 1; visibility: visible;
-        border: none; background: transparent;
-        padding: 0.5rem 0 0 1rem;
-        pointer-events: all;
-      }
-      .dropdown-menu li { border-bottom: none; padding: 0; }
-      .dropdown-menu a { padding: 0.5rem 0; font-size: 0.9rem; color: #6b6860; }
       .nav-center {
         display: none;
         position: fixed;
@@ -274,24 +264,6 @@
       .dropdown-menu li { border-bottom: none; padding: 0; }
       .dropdown-menu a { padding: 0.5rem 0; font-size: 0.9rem; color: #6b6860; }
 
-      .nav-center {
-        display: none;
-        position: fixed;
-        top: 62px;
-        left: 0;
-        right: 0;
-        background: rgba(245,242,237,0.98);
-        flex-direction: column;
-        gap: 0;
-        padding: 1rem 0;
-        border-bottom: 1px solid #ddd9d2;
-        z-index: 99;
-        align-items: flex-start;
-      }
-      .nav-center.active { display: flex; }
-      .nav-center li { padding: 0.9rem 2rem; border-bottom: 1px solid #e8e5dd; width: 100%; }
-      .nav-center li:last-child { border-bottom: none; }
-      .nav-center a { font-size: 1rem; }
 
       .page-header { padding: 8rem 1.5rem 4rem; }
       section { padding: 4rem 1.5rem; }
