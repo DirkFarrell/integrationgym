@@ -9,18 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #0e0e0c;
-      --surface: #161614;
-      --border: rgba(255,255,255,0.08);
-      --text: #e8e4dc;
-      --muted: #8a8578;
-      --accent: #c9a96e;
-    }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: #0e0e0c;
       color: #e8e4dc;
@@ -38,11 +27,10 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.4rem 3rem;
-      background: rgba(14,14,12,0.92);
+      background: rgba(14,14,12,0.95);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid #ddd9d2;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-
     .nav-logo {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.15rem;
@@ -52,7 +40,6 @@
       color: #e8e4dc;
       text-decoration: none;
     }
-
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
     .nav-links a {
       color: #8a8578;
@@ -64,13 +51,22 @@
     }
     .nav-links a:hover { color: #c9a96e; }
 
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .hamburger span { display: block; width: 25px; height: 2px; background: #e8e4dc; }
+
     .page-header {
       padding: 10rem 3rem 5rem;
-      border-bottom: 1px solid #ddd9d2;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-
     .page-header-inner { max-width: 700px; }
-
     .eyebrow {
       font-size: 0.72rem;
       letter-spacing: 0.2em;
@@ -79,7 +75,6 @@
       margin-bottom: 1.5rem;
       display: block;
     }
-
     h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.5rem, 6vw, 4.5rem);
@@ -87,38 +82,19 @@
       line-height: 1.1;
       margin-bottom: 1.5rem;
     }
-
     h1 em { font-style: italic; color: #c9a96e; }
-
-    .page-intro {
-      color: #8a8578;
-      font-size: 1rem;
-      max-width: 560px;
-      line-height: 1.8;
-    }
+    .page-intro { color: #8a8578; font-size: 1rem; max-width: 560px; line-height: 1.8; }
 
     section { padding: 6rem 3rem; }
-
     .section-inner { max-width: 960px; margin: 0 auto; }
-
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .sticky-sidebar {
-      position: sticky;
-      top: 6rem;
-    }
+    .content-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; }
+    .sticky-sidebar { position: sticky; top: 6rem; }
 
     .sidebar-card {
       background: #161614;
-      border: 1px solid #ddd9d2;
+      border: 1px solid rgba(255,255,255,0.08);
       padding: 2.5rem;
     }
-
     .sidebar-label {
       font-size: 0.68rem;
       letter-spacing: 0.18em;
@@ -127,20 +103,16 @@
       margin-bottom: 2rem;
       display: block;
     }
-
     .detail-row {
       display: flex;
       justify-content: space-between;
       padding: 1rem 0;
-      border-bottom: 1px solid #ddd9d2;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       font-size: 0.88rem;
     }
-
     .detail-row:last-of-type { border-bottom: none; }
-
     .detail-key { color: #8a8578; }
     .detail-val { color: #e8e4dc; text-align: right; }
-
     .price-big {
       font-family: 'Cormorant Garamond', serif;
       font-size: 3rem;
@@ -149,18 +121,12 @@
       line-height: 1;
       margin: 2rem 0 0.5rem;
     }
-
-    .price-note {
-      font-size: 0.78rem;
-      color: #8a8578;
-      margin-bottom: 2rem;
-    }
-
+    .price-note { font-size: 0.78rem; color: #8a8578; margin-bottom: 2rem; }
     .btn-primary {
       display: block;
       padding: 0.9rem 2rem;
       background: #c9a96e;
-      color: #f5f2ed;
+      color: #0e0e0c;
       text-decoration: none;
       font-size: 0.78rem;
       letter-spacing: 0.14em;
@@ -170,13 +136,11 @@
       margin-bottom: 0.8rem;
       transition: opacity 0.2s;
     }
-
     .btn-primary:hover { opacity: 0.88; }
-
     .btn-ghost {
       display: block;
       padding: 0.9rem 2rem;
-      border: 1px solid #ddd9d2;
+      border: 1px solid rgba(255,255,255,0.15);
       color: #8a8578;
       text-decoration: none;
       font-size: 0.78rem;
@@ -185,7 +149,6 @@
       text-align: center;
       transition: border-color 0.2s, color 0.2s;
     }
-
     .btn-ghost:hover { border-color: #c9a96e; color: #c9a96e; }
 
     .main-content h2 {
@@ -196,151 +159,64 @@
       margin-top: 3.5rem;
       color: #e8e4dc;
     }
-
     .main-content h2:first-child { margin-top: 0; }
-
-    .main-content p {
-      color: #8a8578;
-      margin-bottom: 1.2rem;
-      font-size: 0.95rem;
-      line-height: 1.85;
-    }
-
+    .main-content p { color: #8a8578; margin-bottom: 1.2rem; font-size: 0.95rem; line-height: 1.85; }
     .main-content strong { color: #e8e4dc; font-weight: 400; }
 
-    .session-list {
-      list-style: none;
-      margin: 1.5rem 0;
-    }
-
+    .session-list { list-style: none; margin: 1.5rem 0; }
     .session-list li {
       display: flex;
       gap: 1.5rem;
       padding: 1.2rem 0;
-      border-bottom: 1px solid #ddd9d2;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       align-items: baseline;
     }
-
-    .session-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      color: #c9a96e;
-      min-width: 2rem;
-    }
-
+    .session-num { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: #c9a96e; min-width: 2rem; }
     .session-info { color: #8a8578; font-size: 0.9rem; }
     .session-date { color: #e8e4dc; display: block; margin-bottom: 0.2rem; font-size: 0.82rem; letter-spacing: 0.05em; }
 
-    .faq-item {
-      padding: 2rem 0;
-      border-bottom: 1px solid #ddd9d2;
-    }
-
-    .faq-q {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin-bottom: 0.8rem;
-      color: #e8e4dc;
-    }
-
-    .faq-a {
-      color: #8a8578;
-      font-size: 0.92rem;
-      line-height: 1.8;
-    }
+    .faq-item { padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .faq-q { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 0.8rem; color: #e8e4dc; }
+    .faq-a { color: #8a8578; font-size: 0.92rem; line-height: 1.8; }
 
     footer {
       padding: 2rem 3rem;
-      border-top: 1px solid #ddd9d2;
+      border-top: 1px solid rgba(255,255,255,0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.1em;
-      color: #8a8578;
-    }
-
-    .footer-loc {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      color: #8a8578;
-      text-transform: uppercase;
-    }
-
-    /* Hamburger menu for mobile */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-    }
-    
-    .hamburger span {
-      display: block;
-      width: 25px;
-      height: 2px;
-      background: #e8e4dc;
-      transition: all 0.3s;
-    }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; letter-spacing: 0.1em; color: #8a8578; }
+    .footer-loc { font-size: 0.75rem; letter-spacing: 0.1em; color: #8a8578; text-transform: uppercase; }
 
     @media (max-width: 768px) {
       .hamburger { display: flex; }
-      
       nav { padding: 1.2rem 1.5rem; }
-      
-      .nav-logo {
-        max-width: 85px;
-        line-height: 1.1;
-        font-size: 0.7rem;
-      }
-      
+      .nav-logo { font-size: 0.8rem; }
+
       .nav-links {
+        display: none;
         position: fixed;
-        top: 65px;
+        top: 62px;
         left: 0;
         right: 0;
         background: rgba(14,14,12,0.98);
-        backdrop-filter: blur(10px);
         flex-direction: column;
         gap: 0;
-        padding: 1.5rem 0;
+        padding: 1rem 0;
         border-bottom: 1px solid rgba(255,255,255,0.08);
-        transform: translateY(-100%);
-        opacity: 0;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        pointer-events: none;
         z-index: 99;
       }
-      
-      .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
-      }
-      
-      .nav-links li {
-        padding: 1rem 3rem;
-        border-bottom: 1px solid rgba(255,255,255,0.05);
-      }
-      
+      .nav-links.active { display: flex; }
+      .nav-links li { padding: 0.9rem 2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
       .nav-links li:last-child { border-bottom: none; }
-      
-      .nav-links a {
-        line-height: 1.2;
-        font-size: 1rem;
-      }
-      
+      .nav-links a { font-size: 1rem; }
+
       .page-header { padding: 8rem 1.5rem 3rem; }
       section { padding: 4rem 1.5rem; }
       .content-grid { grid-template-columns: 1fr; gap: 3rem; }
       .sticky-sidebar { position: static; }
-      footer { flex-direction: column; gap: 0.8rem; }
+      footer { flex-direction: column; gap: 0.8rem; text-align: center; }
     }
   </style>
 </head>
@@ -348,17 +224,15 @@
 
   <nav>
     <a href="index.html" class="nav-logo">The Integration Gym</a>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <button class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-links">
       <li><a href="index.html#what">The Work</a></li>
       <li><a href="cohorts.html">March Cohort</a></li>
+      <li><a href="tigd-weekend-workshop.html">May Workshop</a></li>
       <li><a href="coaching.html">1:1 Coaching</a></li>
       <li><a href="index.html#about">About</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -374,47 +248,23 @@
     <div class="section-inner">
       <div class="content-grid">
 
-        <!-- SIDEBAR -->
         <div class="sticky-sidebar">
           <div class="sidebar-card">
             <span class="sidebar-label">Logistics</span>
-
-            <div class="detail-row">
-              <span class="detail-key">Starts</span>
-              <span class="detail-val">March 12, 2026</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-key">Day</span>
-              <span class="detail-val">Thursdays</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-key">Time</span>
-              <span class="detail-val">7:00–9:00 PM</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-key">Sessions</span>
-              <span class="detail-val">5 weeks</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-key">Group size</span>
-              <span class="detail-val">6–8 people</span>
-            </div>
-            <div class="detail-row">
-              <span class="detail-key">Location</span>
-              <span class="detail-val">North of Ballard</span>
-            </div>
-
+            <div class="detail-row"><span class="detail-key">Starts</span><span class="detail-val">March 12, 2026</span></div>
+            <div class="detail-row"><span class="detail-key">Day</span><span class="detail-val">Thursdays</span></div>
+            <div class="detail-row"><span class="detail-key">Time</span><span class="detail-val">7:00–9:00 PM</span></div>
+            <div class="detail-row"><span class="detail-key">Sessions</span><span class="detail-val">5 weeks</span></div>
+            <div class="detail-row"><span class="detail-key">Group size</span><span class="detail-val">6–8 people</span></div>
+            <div class="detail-row"><span class="detail-key">Location</span><span class="detail-val">North of Ballard</span></div>
             <div class="price-big">$295</div>
             <div class="price-note">Sliding scale to $345 based on capacity</div>
-
-            <a href="/cdn-cgi/l/email-protection#95f1fce7fed5fcfbe1f0f2e7f4e1fcfafbf2ecf8bbfae7f2aae6e0f7fff0f6e1a8d8f4e7f6fdb5d6fafdfae7e1b5771501b5d6fafbe6e0f9e1f4e1fcfafbb5c7f0e4e0f0e6e1" class="btn-primary">Request a conversation</a>
+            <a href="mailto:dirk@integrationgym.org" class="btn-primary">Request a conversation</a>
             <a href="index.html#contact" class="btn-ghost">Ask a question</a>
           </div>
         </div>
 
-        <!-- MAIN CONTENT -->
         <div class="main-content">
-
           <h2>What actually happens in a session</h2>
           <p>Each two-hour session follows a consistent structure. We begin with a brief centering, then move into relational practice exercises designed to surface how each person's self-concept operates under mild pressure.</p>
           <p>These aren't sharing circles or processing sessions. They're structured encounters where <strong>patterns become observable in real time</strong> — where you can feel the pull to perform, manage, deflect, or disappear, and simultaneously witness that pull happening in your body, in the room.</p>
@@ -487,10 +337,10 @@
           </div>
           <div class="faq-item">
             <div class="faq-q">What comes after?</div>
-            <div class="faq-a">Full 12-week cohorts begin in spring 2026. Some people move into 1:1 coaching. Some take a break and return. There's no prescribed next step — though most people find that five weeks opens something they want to continue working with.</div>
+            <div class="faq-a">Full 12-week cohorts begin later in 2026. Some people move into 1:1 coaching. There's no prescribed next step — though most people find that five weeks opens something they want to continue working with.</div>
           </div>
-
         </div>
+
       </div>
     </div>
   </section>
@@ -501,24 +351,18 @@
   </footer>
 
   <script>
-    // Hamburger menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
+    var hamburger = document.querySelector('.hamburger');
+    var navLinks = document.querySelector('.nav-links');
     if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
+      hamburger.addEventListener('click', function() {
         navLinks.classList.toggle('active');
       });
-      
-      // Close menu when clicking a link
-      const links = navLinks.querySelectorAll('a');
-      links.forEach(link => {
-        link.addEventListener('click', () => {
+      navLinks.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
           navLinks.classList.remove('active');
         });
       });
     }
   </script>
-
 </body>
-</html><
+</html>
