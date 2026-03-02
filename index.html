@@ -9,9 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: #f5f2ed;
       color: #1a1a18;
@@ -21,8 +19,6 @@
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
     }
-
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -35,7 +31,6 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid #ddd9d2;
     }
-
     .nav-logo {
       font-family: 'DM Sans', sans-serif;
       font-weight: 600;
@@ -45,14 +40,12 @@
       color: #1a1a18;
       text-decoration: none;
     }
-
     .nav-center {
       display: flex;
       gap: 2.5rem;
       list-style: none;
       align-items: center;
     }
-
     .nav-center a {
       color: #6b6860;
       text-decoration: none;
@@ -62,37 +55,20 @@
       transition: color 0.2s;
     }
     .nav-center a:hover { color: #b8860b; }
-
-    /* DROPDOWN */
-    .nav-dropdown {
-      position: relative;
-    }
-
-    .nav-dropdown > a {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; }
     .nav-dropdown > a::after {
       content: '';
       display: inline-block;
-      width: 0;
-      height: 0;
+      width: 0; height: 0;
       border-left: 4px solid transparent;
       border-right: 4px solid transparent;
       border-top: 4px solid #6b6860;
       transition: transform 0.2s, border-top-color 0.2s;
       margin-top: 1px;
     }
-
-    .nav-dropdown:hover > a::after {
-      transform: rotate(180deg);
-      border-top-color: #b8860b;
-    }
-
+    .nav-dropdown:hover > a::after { transform: rotate(180deg); border-top-color: #b8860b; }
     .nav-dropdown:hover > a { color: #b8860b; }
-
     .dropdown-menu {
       position: absolute;
       top: 100%;
@@ -106,26 +82,15 @@
       transition: opacity 0.2s ease, visibility 0.2s;
       pointer-events: none;
     }
-
     .dropdown-inner {
       background: rgba(245,242,237,0.98);
       backdrop-filter: blur(10px);
       border: 1px solid #ddd9d2;
       border-top: 2px solid #b8860b;
     }
-
-    .nav-dropdown:hover .dropdown-menu {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: all;
-    }
-
-    .dropdown-menu li {
-      border-bottom: 1px solid #e8e5dd;
-    }
-
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; pointer-events: all; }
+    .dropdown-menu li { border-bottom: 1px solid #e8e5dd; }
     .dropdown-menu li:last-child { border-bottom: none; }
-
     .dropdown-menu a {
       display: block;
       padding: 0.85rem 1.4rem;
@@ -136,12 +101,7 @@
       white-space: nowrap;
       transition: color 0.2s, background 0.2s;
     }
-
-    .dropdown-menu a:hover {
-      color: #b8860b;
-      background: rgba(184,134,11,0.04);
-    }
-
+    .dropdown-menu a:hover { color: #b8860b; background: rgba(184,134,11,0.04); }
     .nav-cta {
       display: inline-block;
       padding: 0.6rem 1.4rem;
@@ -155,8 +115,6 @@
       transition: background 0.2s;
     }
     .nav-cta:hover { background: #9a7009; }
-
-    /* HERO */
     .hero {
       min-height: 92vh;
       display: flex;
@@ -166,7 +124,6 @@
       overflow: hidden;
       background: #1a1a18;
     }
-
     .hero::before {
       content: '';
       position: absolute;
@@ -177,7 +134,6 @@
         radial-gradient(ellipse 100% 50% at 50% 0%, rgba(255,255,255,0.03) 0%, transparent 70%);
       pointer-events: none;
     }
-
     .hero::after {
       content: '';
       position: absolute;
@@ -186,13 +142,7 @@
       opacity: 0.4;
       pointer-events: none;
     }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-    }
-
+    .hero-inner { position: relative; z-index: 1; max-width: 900px; }
     .hero-eyebrow {
       font-size: 0.8rem;
       font-weight: 600;
@@ -204,7 +154,6 @@
       opacity: 0;
       animation: fadeUp 0.7s ease forwards 0.2s;
     }
-
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(3rem, 6.5vw, 5.5rem);
@@ -215,9 +164,7 @@
       opacity: 0;
       animation: fadeUp 0.7s ease forwards 0.35s;
     }
-
     .hero-title em { font-style: italic; color: #b8860b; }
-
     .hero-body {
       font-size: 1.15rem;
       color: #9a9690;
@@ -228,7 +175,6 @@
       opacity: 0;
       animation: fadeUp 0.7s ease forwards 0.5s;
     }
-
     .hero-cta {
       display: flex;
       gap: 1.2rem;
@@ -236,7 +182,6 @@
       opacity: 0;
       animation: fadeUp 0.7s ease forwards 0.65s;
     }
-
     .btn-primary {
       display: inline-block;
       padding: 1rem 2.4rem;
@@ -250,7 +195,6 @@
       transition: background 0.2s, transform 0.15s;
     }
     .btn-primary:hover { background: #9a7009; transform: translateY(-1px); }
-
     .btn-ghost {
       display: inline-block;
       padding: 1rem 2.4rem;
@@ -264,11 +208,8 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .btn-ghost:hover { border-color: #b8860b; color: #b8860b; }
-
-    /* SECTIONS */
     section { padding: 6rem 3rem; }
     .section-inner { max-width: 1040px; margin: 0 auto; }
-
     .section-label {
       font-size: 0.75rem;
       font-weight: 600;
@@ -278,10 +219,7 @@
       margin-bottom: 2rem;
       display: block;
     }
-
-    /* GAP SECTION */
     .gap-section { background: #ffffff; }
-
     .gap-headline {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 3.8vw, 3rem);
@@ -291,322 +229,77 @@
       max-width: 780px;
       margin-bottom: 2.5rem;
     }
-
     .gap-headline em { font-style: italic; color: #b8860b; }
-
-    .gap-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-    }
-
-    .gap-body p {
-      color: #3d3d3a;
-      font-size: 1.05rem;
-      line-height: 1.85;
-      margin-bottom: 1.2rem;
-    }
-
-    .distinction-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
-      margin-top: 4rem;
-    }
-
-    .distinction-item {
-      background: #f5f2ed;
-      padding: 2.5rem 2rem;
-      border-top: 3px solid #b8860b;
-    }
-
-    .distinction-is {
-      font-size: 1.1rem;
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 0.8rem;
-      color: #1a1a18;
-    }
-
-    .distinction-desc {
-      font-size: 0.97rem;
-      color: #6b6860;
-      line-height: 1.75;
-    }
-
-    /* HOW IT WORKS */
+    .gap-body { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .gap-body p { color: #3d3d3a; font-size: 1.05rem; line-height: 1.85; margin-bottom: 1.2rem; }
+    .distinction-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 4rem; }
+    .distinction-item { background: #f5f2ed; padding: 2.5rem 2rem; border-top: 3px solid #b8860b; }
+    .distinction-is { font-size: 1.1rem; font-weight: 600; line-height: 1.2; margin-bottom: 0.8rem; color: #1a1a18; }
+    .distinction-desc { font-size: 0.97rem; color: #6b6860; line-height: 1.75; }
     .how-section { background: #f5f2ed; }
-
-    .step {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 3rem;
-      padding: 3.5rem 0;
-      border-bottom: 1px solid #ddd9d2;
-      align-items: start;
-    }
+    .step { display: grid; grid-template-columns: 80px 1fr; gap: 3rem; padding: 3.5rem 0; border-bottom: 1px solid #ddd9d2; align-items: start; }
     .step:first-of-type { border-top: 1px solid #ddd9d2; }
-
-    .step-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 400;
-      color: #ddd9d2;
-      line-height: 1;
-    }
-
+    .step-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 400; color: #ddd9d2; line-height: 1; }
     .step h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.8rem; color: #1a1a18; }
     .step p { font-size: 1.03rem; color: #3d3d3a; line-height: 1.85; }
     .step p strong { color: #1a1a18; font-weight: 600; }
-
-    /* WHO */
     .who-section { background: #1a1a18; }
     .who-section .section-label { color: #b8860b; }
-
-    .who-headline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 400;
-      margin-bottom: 3rem;
-      color: #f0ece4;
-    }
-
-    .who-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2px;
-    }
-
-    .who-item {
-      background: #222220;
-      padding: 2rem 2.5rem;
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-      text-decoration: none;
-      transition: background 0.2s;
-      cursor: pointer;
-    }
-
+    .who-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 400; margin-bottom: 3rem; color: #f0ece4; }
+    .who-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+    .who-item { background: #222220; padding: 2rem 2.5rem; display: flex; gap: 1.2rem; align-items: flex-start; text-decoration: none; transition: background 0.2s; }
     .who-item:hover { background: #2a2a28; }
     .who-item:hover .who-dash { color: #d4a520; }
     .who-item:hover .who-text { color: #c0bdb8; }
-
     .who-dash { color: #b8860b; font-weight: 700; font-size: 1.1rem; margin-top: 0.15rem; flex-shrink: 0; transition: color 0.2s; }
     .who-text { font-size: 1rem; color: #9a9790; line-height: 1.75; transition: color 0.2s; }
-
-    /* MARCH */
     .march-section { background: #ffffff; }
-
-    .march-block {
-      background: #1a1a18;
-      padding: 4rem;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .march-meta {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: #b8860b;
-      margin-bottom: 1rem;
-    }
-
-    .march-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      color: #f0ece4;
-    }
-
+    .march-block { background: #1a1a18; padding: 4rem; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+    .march-meta { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #b8860b; margin-bottom: 1rem; }
+    .march-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem; color: #f0ece4; }
     .march-details { color: #9a9790; font-size: 1.03rem; line-height: 2; }
-
     .march-cta-col { text-align: center; min-width: 220px; }
-
-    .price-big {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4.5rem;
-      font-weight: 400;
-      color: #b8860b;
-      line-height: 1;
-      margin-bottom: 0.3rem;
-    }
-
+    .price-big { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-weight: 400; color: #b8860b; line-height: 1; margin-bottom: 0.3rem; }
     .price-note { font-size: 0.82rem; color: #6b6860; margin-bottom: 2rem; }
-
-    .btn-march {
-      display: block;
-      padding: 1rem 2rem;
-      background: #b8860b;
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 0.8rem;
-      transition: background 0.2s;
-    }
+    .btn-march { display: block; padding: 1rem 2rem; background: #b8860b; color: #fff; text-decoration: none; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; margin-bottom: 0.8rem; transition: background 0.2s; }
     .btn-march:hover { background: #9a7009; }
-
-    .btn-march-ghost {
-      display: block;
-      padding: 1rem 2rem;
-      border: 1.5px solid rgba(255,255,255,0.15);
-      color: #9a9790;
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-align: center;
-      transition: border-color 0.2s, color 0.2s;
-    }
+    .btn-march-ghost { display: block; padding: 1rem 2rem; border: 1.5px solid rgba(255,255,255,0.15); color: #9a9790; text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-align: center; transition: border-color 0.2s, color 0.2s; }
     .btn-march-ghost:hover { border-color: #b8860b; color: #b8860b; }
-
-    /* ABOUT */
     .about-section { background: #f5f2ed; }
-
-    .about-layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 5rem;
-      align-items: start;
-    }
-
-    .about-sidebar {
-      position: sticky;
-      top: 6rem;
-      text-align: center;
-    }
-
-    .about-photo {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      margin: 0 auto 1.5rem;
-      display: block;
-      border: 3px solid #b8860b;
-    }
-
-    .about-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 400;
-      margin-bottom: 0.4rem;
-      color: #1a1a18;
-    }
-
-    .about-role {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #6b6860;
-    }
-
+    .about-layout { display: grid; grid-template-columns: 280px 1fr; gap: 5rem; align-items: start; }
+    .about-sidebar { position: sticky; top: 6rem; text-align: center; }
+    .about-photo { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: center top; margin: 0 auto 1.5rem; display: block; border: 3px solid #b8860b; }
+    .about-name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 0.4rem; color: #1a1a18; }
+    .about-role { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6b6860; }
     .about-body p { color: #3d3d3a; margin-bottom: 1.4rem; font-size: 1.05rem; line-height: 1.85; }
     .about-body strong { color: #1a1a18; font-weight: 600; }
-
-    /* CONTACT */
     .contact-section { background: #1a1a18; padding: 6rem 3rem; }
-
     .contact-inner { max-width: 680px; margin: 0 auto; text-align: center; }
-
-    .contact-headline {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-      color: #f0ece4;
-    }
-
-    .contact-sub {
-      font-size: 1.05rem;
-      color: #9a9690;
-      margin-bottom: 3rem;
-      line-height: 1.8;
-    }
-
-    .contact-email {
-      display: inline-block;
-      font-size: 1.1rem;
-      font-weight: 500;
-      color: #b8860b;
-      text-decoration: none;
-      border-bottom: 1px solid #b8860b;
-      padding-bottom: 0.2rem;
-      margin-bottom: 2.5rem;
-      transition: opacity 0.2s;
-    }
+    .contact-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 400; line-height: 1.2; margin-bottom: 1.2rem; color: #f0ece4; }
+    .contact-sub { font-size: 1.05rem; color: #9a9690; margin-bottom: 3rem; line-height: 1.8; }
+    .contact-email { display: inline-block; font-size: 1.1rem; font-weight: 500; color: #b8860b; text-decoration: none; border-bottom: 1px solid #b8860b; padding-bottom: 0.2rem; margin-bottom: 1.5rem; transition: opacity 0.2s; }
     .contact-email:hover { opacity: 0.8; }
-
+    .btn-calendly { display: inline-block; padding: 1rem 2.4rem; background: #b8860b; color: #fff; text-decoration: none; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.2s; margin-bottom: 2.5rem; }
+    .btn-calendly:hover { background: #9a7009; }
     .contact-alt { font-size: 0.9rem; color: #6b6860; }
     .contact-alt a { color: #9a9790; text-decoration: underline; text-underline-offset: 3px; }
     .contact-alt a:hover { color: #b8860b; }
-
-    footer {
-      background: #111110;
-      padding: 2rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
+    footer { background: #111110; padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; }
     .footer-logo { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: #444442; }
     .footer-loc { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: #333332; }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 1; transform: none; }
-
-    /* Hamburger menu for mobile */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 8px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 25px;
-      height: 2px;
-      background: #1a1a18;
-      transition: all 0.3s;
-    }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+    .hamburger span { display: block; width: 25px; height: 2px; background: #1a1a18; transition: all 0.3s; }
 
     @media (max-width: 768px) {
       .hamburger { display: flex; }
-
       nav { padding: 1rem 1.5rem; }
-
-      .nav-logo {
-        max-width: 85px;
-        line-height: 1.1;
-        font-size: 0.7rem;
-      }
-
+      .nav-logo { max-width: 85px; line-height: 1.1; font-size: 0.7rem; }
       .nav-center {
         display: none;
         position: fixed;
-        top: 65px;
-        left: 0;
-        right: 0;
+        top: 65px; left: 0; right: 0;
         background: rgba(245,242,237,0.98);
         flex-direction: column;
         gap: 0;
@@ -615,51 +308,22 @@
         z-index: 99;
         align-items: flex-start;
       }
-
-      .nav-center.active {
-        display: flex;
-      }
-
-      .nav-center li {
-        padding: 1rem 3rem;
-        border-bottom: 1px solid #e8e5dd;
-        width: 100%;
-      }
-
+      .nav-center.active { display: flex; }
+      .nav-center li { padding: 0.75rem 2rem; border-bottom: 1px solid #e8e5dd; width: 100%; }
       .nav-center li:last-child { border-bottom: none; }
-
-      .nav-center a {
-        font-size: 1rem;
-        line-height: 1.2;
-      }
-
-      /* Mobile dropdown */
+      .nav-center a { font-size: 1rem; line-height: 1.2; }
+      /* Mobile: Get Started is a label, not clickable */
+      .nav-dropdown > a { pointer-events: none; color: #b8860b; font-weight: 600; }
       .nav-dropdown > a::after { display: none; }
-
       .dropdown-menu {
-        position: static;
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        border: none;
-        border-top: none;
-        background: transparent;
-        padding: 0.5rem 0 0 1rem;
+        position: static; transform: none;
+        opacity: 1; visibility: visible;
+        border: none; background: transparent;
+        padding: 0.3rem 0 0 1rem;
         pointer-events: all;
-        box-shadow: none;
       }
-
-      .dropdown-menu li {
-        border-bottom: none;
-        padding: 0;
-      }
-
-      .dropdown-menu a {
-        padding: 0.5rem 0;
-        font-size: 0.9rem;
-        color: #6b6860;
-      }
-
+      .dropdown-menu li { border-bottom: none; padding: 0; }
+      .dropdown-menu a { padding: 0.4rem 0; font-size: 0.9rem; color: #6b6860; }
       .nav-cta { display: none; }
       section { padding: 4rem 1.5rem; }
       .hero { padding: 8rem 1.5rem 4rem; min-height: auto; }
@@ -676,32 +340,27 @@
 
   <nav>
     <a href="index.html" class="nav-logo">The Integration Gym</a>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
     <ul class="nav-center">
       <li><a href="#gap">The Work</a></li>
       <li class="nav-dropdown">
         <a href="#">Get Started</a>
         <ul class="dropdown-menu">
           <div class="dropdown-inner">
-          <li><a href="cohorts.html">March Cohort</a></li>
-          <li><a href="tigd-weekend-workshop.html">May Workshop</a></li>
-          <li><a href="coaching.html">1:1 Coaching</a></li>
+            <li><a href="contact.html#cohort">March Cohort</a></li>
+            <li><a href="contact.html#workshop">May Workshop</a></li>
+            <li><a href="contact.html#coaching">1:1 Coaching</a></li>
           </div>
         </ul>
       </li>
       <li><a href="#about">About</a></li>
     </ul>
-    <a href="#contact" class="nav-cta">Schedule a Call</a>
+    <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" class="nav-cta">Schedule a Call</a>
   </nav>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
-      <span class="hero-eyebrow">North of Ballard, Seattle · Est. 2026</span>
+      <span class="hero-eyebrow">North of Ballard, Seattle</span>
       <h1 class="hero-title">
         You already know what<br>
         you need to change.<br>
@@ -715,14 +374,10 @@
     </div>
   </section>
 
-  <!-- THE GAP -->
   <section id="gap" class="gap-section">
     <div class="section-inner">
       <span class="section-label reveal">Why Standard Approaches Fall Short</span>
-      <h2 class="gap-headline reveal">
-        There's a gap between knowing what needs to change<br>
-        <em>and actually changing it.</em>
-      </h2>
+      <h2 class="gap-headline reveal">There's a gap between knowing what needs to change<br><em>and actually changing it.</em></h2>
       <div class="gap-body reveal">
         <div>
           <p>Most approaches to personal change focus on insight — understanding your patterns, tracing them to their origins, building awareness of how they operate. This is valuable work. But insight alone operates at a different level than the unconscious beliefs actually driving behavior.</p>
@@ -733,7 +388,6 @@
           <p>The Integration Gym is built specifically for that. A structured, peer-based practice space where the gap between knowing and changing becomes workable.</p>
         </div>
       </div>
-
       <div class="distinction-list reveal">
         <div class="distinction-item">
           <div class="distinction-is">Not Therapy</div>
@@ -751,7 +405,6 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section class="how-section">
     <div class="section-inner">
       <span class="section-label reveal">How It Works</span>
@@ -779,33 +432,32 @@
     </div>
   </section>
 
-  <!-- WHO -->
   <section class="who-section">
     <div class="section-inner">
       <span class="section-label reveal">Who This Is For</span>
       <h2 class="who-headline reveal">You might be ready if—</h2>
       <div class="who-grid reveal">
-        <a href="#contact" class="who-item">
+        <a href="contact.html" class="who-item">
           <span class="who-dash">—</span>
           <span class="who-text">You've done significant inner work and hit a ceiling where insight stops translating into actual behavior change</span>
         </a>
-        <a href="#contact" class="who-item">
+        <a href="contact.html" class="who-item">
           <span class="who-dash">—</span>
           <span class="who-text">You can describe your patterns clearly but still find yourself inside them without knowing how you got there</span>
         </a>
-        <a href="#contact" class="who-item">
+        <a href="contact.html" class="who-item">
           <span class="who-dash">—</span>
           <span class="who-text">Expanded states or deep experiences have opened something you're not sure how to work with in daily life</span>
         </a>
-        <a href="#contact" class="who-item">
+        <a href="contact.html" class="who-item">
           <span class="who-dash">—</span>
           <span class="who-text">You're functioning well externally and know something fundamental hasn't actually shifted</span>
         </a>
-        <a href="#contact" class="who-item">
+        <a href="contact.html" class="who-item">
           <span class="who-dash">—</span>
           <span class="who-text">You're willing to be seen — not just heard — in a group of peers doing the same work</span>
         </a>
-        <a href="#contact" class="who-item">
+        <a href="contact.html" class="who-item">
           <span class="who-dash">—</span>
           <span class="who-text">You're ready to show up consistently, not just when it's convenient or comfortable</span>
         </a>
@@ -813,7 +465,6 @@
     </div>
   </section>
 
-  <!-- MARCH -->
   <section id="march" class="march-section">
     <div class="section-inner">
       <span class="section-label reveal">Now Forming</span>
@@ -832,13 +483,12 @@
           <div class="price-big">$295</div>
           <div class="price-note">sliding scale to $345</div>
           <a href="cohorts.html" class="btn-march">Full Details →</a>
-          <a href="#contact" class="btn-march-ghost">Schedule a call</a>
+          <a href="contact.html#cohort" class="btn-march-ghost">Schedule a call</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="about-section">
     <div class="section-inner">
       <span class="section-label reveal">Facilitator</span>
@@ -859,14 +509,15 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="contact-section">
     <div class="contact-inner reveal">
       <h2 class="contact-headline">The first step is a conversation</h2>
       <p class="contact-sub">20 minutes. I'll ask you a few things. You ask me whatever you need. We figure out together whether this is the right fit, right now.</p>
       <br>
-      <a href="/cdn-cgi/l/email-protection#9df9f4eff6ddf4f3e9f8faeffce9f4f2f3fae4f0b3f2effa" class="contact-email"><span class="__cf_email__" data-cfemail="e3878a9188a38a8d9786849182978a8c8d849a8ecd8c9184">[email&#160;protected]</span></a>
+      <a href="mailto:dirk@integrationgym.org" class="contact-email">dirk@integrationgym.org</a>
       <br><br>
+      <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" class="btn-calendly">Schedule a Conversation</a>
+      <br>
       <p class="contact-alt">Or <a href="cohorts.html">read the full March cohort details</a> first.</p>
     </div>
   </section>
@@ -876,20 +527,8 @@
     <span class="footer-loc">North of Ballard · Seattle, WA</span>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     const hamburger = document.querySelector('.hamburger');
     const navCenter = document.querySelector('.nav-center');
-
     if (hamburger && navCenter) {
-      hamburger.addEventListener('click', function() {
-        navCenter.classList.toggle('active');
-      });
-      navCenter.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
-          navCenter.classList.remove('active');
-        });
-      });
-    }
-  </script>
-</body>
-</html>
+      hamburger.addEventListener('click', funct
