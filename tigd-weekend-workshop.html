@@ -76,7 +76,6 @@
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    padding-top: 0.75rem;
     min-width: 200px;
     list-style: none;
     opacity: 0;
@@ -619,20 +618,37 @@
   <span class="brand">The Integration Gym & Dojo &nbsp;·&nbsp; IntegrationGym.org</span>
   <a href="mailto:dirk@integrationgym.org">dirk@integrationgym.org</a>
 </footer>
-
-<script>
-  var hamburger = document.querySelector('.hamburger');
-  var navCenter = document.querySelector('.nav-center');
-  if (hamburger && navCenter) {
-    hamburger.addEventListener('click', function() {
-      navCenter.classList.toggle('active');
-    });
-    navCenter.querySelectorAll('a').forEach(function(link) {
-      link.addEventListener('click', function() {
-        navCenter.classList.remove('active');
+  <script>
+    
+    const hamburger = document.querySelector('.hamburger');
+    const navCenter = document.querySelector('.nav-center');
+    if (hamburger && navCenter) {
+      hamburger.addEventListener('click', function() {
+        navCenter.classList.toggle('active');
       });
+      navCenter.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          navCenter.classList.remove('active');
+        });
+      });
+    }
+    
+(function() {
+  document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
+    var timer;
+    dropdown.addEventListener('mouseenter', function() {
+      clearTimeout(timer);
+      var menu = this.querySelector('.dropdown-menu');
+      if (menu) { menu.style.opacity='1'; menu.style.visibility='visible'; menu.style.pointerEvents='all'; }
     });
-  }
-</script>
+    dropdown.addEventListener('mouseleave', function() {
+      var menu = this.querySelector('.dropdown-menu');
+      timer = setTimeout(function() {
+        if (menu) { menu.style.opacity=''; menu.style.visibility=''; menu.style.pointerEvents=''; }
+      }, 150);
+    });
+  });
+})();
+  </script>
 </body>
 </html>
