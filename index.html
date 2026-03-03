@@ -346,9 +346,9 @@
         <a href="#">Get Started</a>
         <ul class="dropdown-menu">
           <div class="dropdown-inner">
-            <li><a href="contact.html#cohort">March Cohort</a></li>
-            <li><a href="contact.html#workshop">May Workshop</a></li>
-            <li><a href="contact.html#coaching">1:1 Coaching</a></li>
+            <li><a href="cohorts.html">March Cohort</a></li>
+            <li><a href="tigd-weekend-workshop.html">May Workshop</a></li>
+            <li><a href="coaching.html">1:1 Coaching</a></li>
           </div>
         </ul>
       </li>
@@ -513,7 +513,7 @@
       <h2 class="contact-headline">The first step is a conversation</h2>
       <p class="contact-sub">20 minutes. I'll ask you a few things. You ask me whatever you need. We figure out together whether this is the right fit, right now.</p>
       <br>
-      <a href="/cdn-cgi/l/email-protection#25414c574e654c4b5140425744514c4a4b425c480b4a5742"><span class="__cf_email__" data-cfemail="187c716a735871766c7d7f6a796c7177767f617536776a7f">[email&#160;protected]</span></a>
+      <span id="em"></span>
       <br><br>
       <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" class="btn-calendly">Schedule a Conversation</a>
       <br>
@@ -524,10 +524,7 @@
   <footer>
     <span class="footer-logo">The Integration Gym</span>
     <span class="footer-loc">North of Ballard · Seattle, WA</span>
-  </footer>
-
-  
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  </footer><script>
     var hamburger = document.querySelector('.hamburger');
     var navCenter = document.querySelector('.nav-center');
     if (hamburger && navCenter) {
@@ -551,4 +548,20 @@
       if (menu) { menu.style.opacity="1"; menu.style.visibility="visible"; menu.style.pointerEvents="all"; }
     });
     dropdown.addEventListener("mouseleave", function() {
-  
+      var menu = this.querySelector('.dropdown-menu');
+      timer = setTimeout(function() {
+        if (menu) { menu.style.opacity=''; menu.style.visibility=''; menu.style.pointerEvents=''; }
+      }, 150);
+    });
+  });
+})();
+
+  (function(){
+    var u='dirk',d='integrationgym.org',at=String.fromCharCode(64);
+    var e=u+at+d;
+    var el=document.getElementById('em');
+    if(el){el.innerHTML='<a href="mailto:'+e+'" class="contact-email">'+e+'</a>';}
+  })();
+</script>
+</body>
+</html>
