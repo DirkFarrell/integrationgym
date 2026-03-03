@@ -74,7 +74,6 @@
       position: absolute;
       top: 100%; left: 50%;
       transform: translateX(-50%);
-      padding-top: 0.75rem;
       min-width: 200px;
       list-style: none;
       opacity: 0; visibility: hidden;
@@ -343,7 +342,7 @@
       </div>
 
       <h2>Next step</h2>
-      <p>Email me directly at <a href="mailto:dirk@integrationgym.org">dirk@integrationgym.org</a>. We'll set up a brief conversation to discuss what you're working with and whether this is the right fit.</p>
+      <p>Email me directly at <a href="/cdn-cgi/l/email-protection#45212c372e052c2b3120223724312c2a2b223c286b2a3722"><span class="__cf_email__" data-cfemail="8befe2f9e0cbe2e5ffeeecf9eaffe2e4e5ecf2e6a5e4f9ec">[email&#160;protected]</span></a>. We'll set up a brief conversation to discuss what you're working with and whether this is the right fit.</p>
     </div>
   </section>
 
@@ -357,10 +356,10 @@
     <span class="footer-logo">The Integration Gym</span>
     <span>North of Ballard · Seattle, WA</span>
   </footer>
-
-  <script>
-    var hamburger = document.querySelector('.hamburger');
-    var navCenter = document.querySelector('.nav-center');
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    
+    const hamburger = document.querySelector('.hamburger');
+    const navCenter = document.querySelector('.nav-center');
     if (hamburger && navCenter) {
       hamburger.addEventListener('click', function() {
         navCenter.classList.toggle('active');
@@ -371,6 +370,23 @@
         });
       });
     }
+    
+(function() {
+  document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
+    var timer;
+    dropdown.addEventListener('mouseenter', function() {
+      clearTimeout(timer);
+      var menu = this.querySelector('.dropdown-menu');
+      if (menu) { menu.style.opacity='1'; menu.style.visibility='visible'; menu.style.pointerEvents='all'; }
+    });
+    dropdown.addEventListener('mouseleave', function() {
+          var menu = this.querySelector('.dropdown-menu');
+      timer = setTimeout(function() {
+        if (menu) { menu.style.opacity=''; menu.style.visibility=''; menu.style.pointerEvents=''; }
+      }, 150);
+    });
+  });
+})();
   </script>
 </body>
 </html>
