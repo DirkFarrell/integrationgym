@@ -9,19 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg: #f5f2ed;
-      --white: #ffffff;
-      --dark: #1a1a18;
-      --mid: #3d3d3a;
-      --muted: #6b6860;
-      --accent: #b8860b;
-      --border: #ddd9d2;
-    }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: #f5f2ed;
       color: #1a1a18;
@@ -45,7 +33,6 @@
       backdrop-filter: blur(10px);
       border-bottom: 1px solid #ddd9d2;
     }
-
     .nav-logo {
       font-family: 'DM Sans', sans-serif;
       font-weight: 600;
@@ -55,13 +42,12 @@
       color: #1a1a18;
       text-decoration: none;
     }
-
     .nav-center {
       display: flex;
       gap: 2.5rem;
       list-style: none;
+      align-items: center;
     }
-
     .nav-center a {
       color: #6b6860;
       text-decoration: none;
@@ -71,7 +57,50 @@
       transition: color 0.2s;
     }
     .nav-center a:hover { color: #b8860b; }
-
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 0.3rem; }
+    .nav-dropdown > a::after {
+      content: '';
+      display: inline-block;
+      width: 0; height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid #6b6860;
+      transition: transform 0.2s, border-top-color 0.2s;
+      margin-top: 1px;
+    }
+    .nav-dropdown:hover > a::after { transform: rotate(180deg); border-top-color: #b8860b; }
+    .nav-dropdown:hover > a { color: #b8860b; }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%; left: 50%;
+      transform: translateX(-50%);
+      min-width: 200px;
+      list-style: none;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s;
+      pointer-events: none;
+    }
+    .dropdown-inner {
+      background: rgba(245,242,237,0.98);
+      backdrop-filter: blur(10px);
+      border: 1px solid #ddd9d2;
+      border-top: 2px solid #b8860b;
+    }
+    .nav-dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; pointer-events: all; }
+    .dropdown-menu li { border-bottom: 1px solid #e8e5dd; }
+    .dropdown-menu li:last-child { border-bottom: none; }
+    .dropdown-menu a {
+      display: block;
+      padding: 0.85rem 1.4rem;
+      color: #3d3d3a;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      transition: color 0.2s, background 0.2s;
+    }
+    .dropdown-menu a:hover { color: #b8860b; background: rgba(184,134,11,0.04); }
     .nav-cta {
       display: inline-block;
       padding: 0.6rem 1.4rem;
@@ -92,9 +121,7 @@
       background: #ffffff;
       border-bottom: 1px solid #ddd9d2;
     }
-
     .page-header-inner { max-width: 800px; margin: 0 auto; }
-
     .eyebrow {
       font-size: 0.75rem;
       font-weight: 600;
@@ -104,7 +131,6 @@
       margin-bottom: 1.5rem;
       display: block;
     }
-
     h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.5rem, 5vw, 4rem);
@@ -113,7 +139,6 @@
       margin-bottom: 1.5rem;
       color: #1a1a18;
     }
-
     .page-intro {
       color: #3d3d3a;
       font-size: 1.12rem;
@@ -125,7 +150,6 @@
     section { padding: 5rem 3rem; }
     .content-section { background: #f5f2ed; }
     .content-section:nth-of-type(even) { background: #ffffff; }
-
     .content-inner { max-width: 720px; margin: 0 auto; }
 
     h2 {
@@ -136,19 +160,10 @@
       margin: 3.5rem 0 1.5rem 0;
       color: #1a1a18;
     }
-
     h2:first-child { margin-top: 0; }
-
-    p {
-      font-size: 1.05rem;
-      color: #3d3d3a;
-      line-height: 1.85;
-      margin-bottom: 1.2rem;
-    }
-
+    p { font-size: 1.05rem; color: #3d3d3a; line-height: 1.85; margin-bottom: 1.2rem; }
     a { color: #b8860b; text-decoration: none; font-weight: 500; }
     a:hover { text-decoration: underline; }
-
     strong { color: #1a1a18; font-weight: 600; }
 
     /* SHOE GRID */
@@ -158,14 +173,12 @@
       gap: 2rem;
       margin: 3rem 0;
     }
-
     .shoe-card {
       background: #ffffff;
       border: 1px solid #ddd9d2;
       padding: 2rem;
       border-top: 3px solid #b8860b;
     }
-
     .shoe-card h3 {
       font-family: 'DM Sans', sans-serif;
       font-size: 1.2rem;
@@ -173,25 +186,9 @@
       color: #1a1a18;
       margin-bottom: 1rem;
     }
-
-    .shoe-card p {
-      font-size: 1rem;
-      color: #3d3d3a;
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
-    }
-
-    .shoe-link {
-      display: inline-block;
-      color: #b8860b;
-      font-weight: 500;
-      font-size: 0.95rem;
-      text-decoration: none;
-    }
-
-    .shoe-link:hover {
-      text-decoration: underline;
-    }
+    .shoe-card p { font-size: 1rem; color: #3d3d3a; line-height: 1.75; margin-bottom: 1.5rem; }
+    .shoe-link { display: inline-block; color: #b8860b; font-weight: 500; font-size: 0.95rem; text-decoration: none; }
+    .shoe-link:hover { text-decoration: underline; }
 
     /* INFO BOX */
     .info-box {
@@ -200,13 +197,7 @@
       margin: 3rem 0;
       border-left: 4px solid #b8860b;
     }
-
-    .info-box p {
-      color: #9a9790;
-      font-size: 1rem;
-      line-height: 1.75;
-      margin: 0;
-    }
+    .info-box p { color: #9a9790; font-size: 1rem; line-height: 1.75; margin: 0; }
 
     /* FOOTER */
     footer {
@@ -219,81 +210,51 @@
       font-size: 0.85rem;
       color: #6b6860;
     }
+    .footer-logo { font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1a1a18; }
 
-    .footer-logo {
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #1a1a18;
-    }
-
-    /* Hamburger menu for mobile */
+    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
       padding: 8px;
+      background: none;
+      border: none;
     }
-    
-    .hamburger span {
-      display: block;
-      width: 25px;
-      height: 2px;
-      background: #1a1a18;
-      transition: all 0.3s;
-    }
+    .hamburger span { display: block; width: 25px; height: 2px; background: #1a1a18; }
 
-    /* MOBILE */
     @media (max-width: 768px) {
       .hamburger { display: flex; }
-      
       nav { padding: 1rem 1.5rem; }
-      
-      .nav-logo {
-        max-width: 85px;
-        line-height: 1.1;
-        font-size: 0.7rem;
-      }
-      
+      .nav-logo { max-width: 85px; line-height: 1.1; font-size: 0.7rem; }
+      .nav-cta { display: none; }
       .nav-center {
+        display: none;
         position: fixed;
-        top: 65px;
-        left: 0;
-        right: 0;
+        top: 65px; left: 0; right: 0;
         background: rgba(245,242,237,0.98);
-        backdrop-filter: blur(10px);
         flex-direction: column;
         gap: 0;
         padding: 1.5rem 0;
         border-bottom: 1px solid #ddd9d2;
-        transform: translateY(-100%);
-        opacity: 0;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        pointer-events: none;
         z-index: 99;
+        align-items: flex-start;
       }
-      
-      .nav-center.active {
-        transform: translateY(0);
-        opacity: 1;
+      .nav-center.active { display: flex; }
+      .nav-center li { padding: 0.6rem 2rem; border-bottom: 1px solid #e8e5dd; width: 100%; }
+      .nav-center li:last-child { border-bottom: none; }
+      .nav-center a { font-size: 1rem; line-height: 1.2; }
+      .nav-dropdown > a::after { display: none; }
+      .dropdown-menu {
+        position: static; transform: none;
+        opacity: 1; visibility: visible;
+        border: none; background: transparent;
+        padding: 0.2rem 0 0 1rem;
         pointer-events: all;
       }
-      
-      .nav-center li {
-        padding: 1rem 3rem;
-        border-bottom: 1px solid #e8e5dd;
-      }
-      
-      .nav-center li:last-child { border-bottom: none; }
-      
-      .nav-center a {
-        line-height: 1.2;
-        font-size: 1rem;
-      }
-      
-      .nav-cta { display: none; }
-      
+      .dropdown-menu li { border-bottom: none; padding: 0.25rem 0; }
+      .dropdown-menu a { padding: 0; font-size: 0.88rem; color: #6b6860; }
       .page-header { padding: 8rem 1.5rem 4rem; }
       section { padding: 4rem 1.5rem; }
       .shoe-grid { grid-template-columns: 1fr; }
@@ -305,59 +266,57 @@
 
   <nav>
     <a href="index.html" class="nav-logo">The Integration Gym</a>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <button class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
     <ul class="nav-center">
       <li><a href="index.html#gap">The Work</a></li>
-      <li><a href="index.html#march">March Cohort</a></li>
-      <li><a href="coaching.html">1:1 Coaching</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Get Started</a>
+        <ul class="dropdown-menu">
+          <div class="dropdown-inner">
+            <li><a href="cohorts.html">March Cohort</a></li>
+            <li><a href="tigd-weekend-workshop.html">May Workshop</a></li>
+            <li><a href="coaching.html">1:1 Coaching</a></li>
+          </div>
+        </ul>
+      </li>
       <li><a href="index.html#about">About</a></li>
     </ul>
-    <a href="mailto:dirk@integrationgym.org" class="nav-cta">Email Dirk</a>
+    <a href="https://calendly.com/dirk-integrationgym/30min" class="nav-cta">Schedule a Call</a>
   </nav>
 
-  <!-- HEADER -->
   <header class="page-header">
     <div class="page-header-inner">
       <span class="eyebrow">Barefoot Shoes</span>
       <h1>Why I've worn Xero Shoes for 15 years</h1>
-      <p class="page-intro">Feet are designed amazingly well — if we use them and don't mess with our mechanics. That's why I went with barefoot shoes. They don't mess up our body mechanics.</p>
+      <p class="page-intro">Feet are designed amazingly well. If we use them and don't mess with our mechanics they treat us great, too. That's why I went with barefoot shoes. They don't mess up our body mechanics.</p>
     </div>
   </header>
 
-  <!-- CONTENT -->
   <section class="content-section">
     <div class="content-inner">
       <h2>How I found Xero Shoes</h2>
-      
-      <p>I met Steven Sashen, the founder of Xero Shoes, when he was just starting to sell DIY barefoot sandal kits. He sized me up and I've been wearing Xero Shoes ever since.</p>
-
-      <p>I've worn their sandals backpacking parts of the Pacific Crest Trail and elsewhere. The Alpines work in the snow — they're my winter outdoor work shoes. The Speed Force II is what I run in. These aren't fashion choices. They're functional tools that let your feet work the way they're designed to work.</p>
+      <p>I met Steven Sashen, the founder of Xero Shoes, when he was just starting to sell DIY barefoot sandal kits, before shoes were in his future. He sized me up and I've been wearing Xero Shoes ever since.</p>
+      <p>I've worn their sandals backpacking parts of the Pacific Crest Trail and elsewhere. The Alpines work in the snow — they're my winter outdoor work shoes. The Speed Force II is what I run in. These aren't fashion choices. They're functional tools that let feet work the way they're designed to work.</p>
 
       <h2>What I wear</h2>
-
       <div class="shoe-grid">
         <div class="shoe-card">
           <h3>Prio</h3>
           <p>Everyday casual shoe. Minimal cushioning, wide toe box, flexible sole. This is what I wear most days when I'm not running or hiking.</p>
           <a href="[AFFILIATE_LINK_PLACEHOLDER]" class="shoe-link">View Prio →</a>
         </div>
-
         <div class="shoe-card">
           <h3>Speed Force II</h3>
-          <p>Running shoe. Light, responsive, zero drop. If you're transitioning to barefoot running, start slow — your feet and calves will need time to adapt.</p>
+          <p>Running shoe. Light, responsive, zero drop. If you're transitioning to barefoot running, start slow — feet and calves need time to adapt.</p>
           <a href="[AFFILIATE_LINK_PLACEHOLDER]" class="shoe-link">View Speed Force II →</a>
         </div>
-
         <div class="shoe-card">
           <h3>Genesis Sandal</h3>
-          <p>Classic minimalist sandal. I've worn these on long backpacking trips including sections of the PCT. They hold up and your feet don't suffer.</p>
+          <p>Classic minimalist sandal. I've worn these on long backpacking trips including sections of the PCT. They hold up, I enjoy the minimal protection, my feet love the freedom.</p>
           <a href="[AFFILIATE_LINK_PLACEHOLDER]" class="shoe-link">View Genesis →</a>
         </div>
-
         <div class="shoe-card">
           <h3>Alpine</h3>
           <p>Winter boot. Insulated, waterproof, still zero drop with a wide toe box. These work in snow and cold — my go-to for winter outdoor work.</p>
@@ -366,32 +325,23 @@
       </div>
 
       <h2>Why barefoot matters</h2>
-
       <p>Your feet are your foundation. Literally. They're packed with proprioceptors — sensory receptors that tell your brain where you are in space and how to adjust your posture and movement.</p>
-
       <p>When you wear shoes with elevated heels, narrow toe boxes, and stiff soles, you're blocking that sensory input and forcing your body to compensate. Those compensations ripple up through your ankles, knees, hips, spine.</p>
-
       <p>After 30+ years working with bodies in chiropractic practice, I saw this pattern constantly: people with chronic pain, postural dysfunction, movement restrictions — and feet that had been shaped by their shoes instead of the other way around.</p>
-
       <p>Barefoot shoes let your feet work. Wide toe box so your toes can spread. Zero drop so your heel isn't elevated. Thin, flexible sole so you can feel the ground and your proprioceptors can do their job.</p>
-
       <p>It's not complicated. Just let your body work the way it's designed to work.</p>
 
       <h2>Transitioning to barefoot shoes</h2>
-
       <p>If you've been wearing conventional shoes your whole life, don't just switch overnight. Your feet, ankles, and calves need time to adapt.</p>
-
       <p>Start by wearing barefoot shoes for short periods — maybe an hour a day. Gradually increase. Pay attention to any soreness in your calves or feet. That's normal as your muscles adapt to working in new ways.</p>
-
       <p>Walk barefoot when you can. Around the house, in the yard, on the beach. Let your feet remember what they're capable of.</p>
-
       <p>If you're running, the transition is even more important. Start with short distances, slower paces. Your calves and Achilles tendons will be doing work they haven't done in years. Respect that process.</p>
 
       <div class="info-box">
         <p><strong>Note:</strong> These are affiliate links. If you purchase through them, I receive a small commission at no cost to you. I recommend these shoes because I've worn them for 15 years, not because of the affiliate relationship. But if you're going to buy them anyway, I appreciate you using these links.</p>
       </div>
 
-      <p>Questions about barefoot shoes? Email me at <a href="mailto:dirk@integrationgym.org">dirk@integrationgym.org</a></p>
+      <p>Questions about barefoot shoes? Email me at <a href="/cdn-cgi/l/email-protection#ff9b968d94bf96918b9a988d9e8b969091988692d1908d98"><span class="__cf_email__" data-cfemail="3d59544f567d545349585a4f5c495452535a445013524f5a">[email&#160;protected]</span></a></p>
     </div>
   </section>
 
@@ -399,26 +349,10 @@
     <span class="footer-logo">The Integration Gym</span>
     <span class="footer-loc">North of Ballard · Seattle, WA</span>
   </footer>
-
-  <script>
-    // Hamburger menu toggle
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    
     const hamburger = document.querySelector('.hamburger');
     const navCenter = document.querySelector('.nav-center');
-    
     if (hamburger && navCenter) {
-      hamburger.addEventListener('click', () => {
-        navCenter.classList.toggle('active');
-      });
-      
-      // Close menu when clicking a link
-      const navLinks = navCenter.querySelectorAll('a');
-      navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          navCenter.classList.remove('active');
-        });
-      });
-    }
-  </script>
-
-</body>
-</html>
+      hamburger.addEventListener('click', function() {
+        navCenter.classList.toggle('active')
