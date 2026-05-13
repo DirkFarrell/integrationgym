@@ -39,8 +39,9 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: var(--near-black);
-      border-bottom: 1px solid var(--border-dark);
+      background: rgba(245, 242, 237, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-light);
       padding: 0 2rem;
       display: flex;
       align-items: center;
@@ -58,7 +59,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.15rem;
       font-weight: 500;
-      color: var(--warm-white);
+      color: var(--near-black);
       letter-spacing: 0.01em;
     }
     .nav-logo-tag {
@@ -79,7 +80,7 @@
       text-decoration: none;
       font-size: 0.82rem;
       font-weight: 400;
-      color: var(--body-dark);
+      color: var(--muted-light);
       letter-spacing: 0.04em;
       transition: color 0.2s;
     }
@@ -103,19 +104,21 @@
       position: absolute;
       top: calc(100% + 12px);
       left: 0;
-      background: var(--near-black);
-      border: 1px solid var(--border-dark);
+      background: rgba(245, 242, 237, 0.98);
+      border: 1px solid var(--border-light);
+      border-top: 2px solid var(--gold);
       min-width: 180px;
       padding: 0.5rem 0;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
       transition: opacity 0.2s ease, visibility 0.2s;
     }
     .dropdown-menu a {
       display: block;
       padding: 0.55rem 1.1rem;
       font-size: 0.8rem;
+      color: var(--body-light);
     }
-    .nav-dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu a:hover { color: var(--gold); background: rgba(184,134,11,0.04); }
  
     .nav-cta {
       background: var(--gold);
