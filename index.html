@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
+
     :root {
       --warm-white: #f5f2ed;
       --near-black: #1a1a18;
@@ -22,9 +22,9 @@
       --border-light: #e0dbd3;
       --border-dark: #2e2e2b;
     }
- 
+
     html { scroll-behavior: smooth; }
- 
+
     body {
       font-family: 'DM Sans', sans-serif;
       background: var(--warm-white);
@@ -33,7 +33,7 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
- 
+
     /* ── NAV ── */
     nav {
       position: sticky;
@@ -48,28 +48,18 @@
       justify-content: space-between;
       height: 64px;
     }
- 
+
     .nav-logo {
       text-decoration: none;
       display: flex;
-      flex-direction: column;
-      line-height: 1.1;
+      align-items: center;
     }
-    .nav-logo-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-weight: 500;
-      color: var(--near-black);
-      letter-spacing: 0.01em;
+    .nav-logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
     }
-    .nav-logo-tag {
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      font-weight: 400;
-    }
- 
+
     .nav-links {
       display: flex;
       align-items: center;
@@ -85,7 +75,7 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--gold); }
- 
+
     .nav-dropdown { position: relative; }
     .nav-dropdown > a { cursor: pointer; display: flex; align-items: center; gap: 0.25rem; }
     .nav-dropdown > a::after { content: '▾'; font-size: 0.6rem; }
@@ -119,7 +109,7 @@
       color: var(--body-light);
     }
     .dropdown-menu a:hover { color: var(--gold); background: rgba(184,134,11,0.04); }
- 
+
     .nav-cta {
       background: var(--gold);
       color: var(--warm-white) !important;
@@ -130,7 +120,7 @@
       transition: background 0.2s !important;
     }
     .nav-cta:hover { background: var(--gold-hover) !important; color: var(--warm-white) !important; }
- 
+
     /* ── HERO ── */
     .hero {
       min-height: 88vh;
@@ -141,11 +131,11 @@
       max-width: 860px;
       margin: 0 auto;
     }
- 
+
     .hero-section-wrap {
       background: var(--near-black);
     }
- 
+
     .hero-eyebrow {
       font-size: 0.72rem;
       letter-spacing: 0.2em;
@@ -154,7 +144,7 @@
       margin-bottom: 2rem;
       font-weight: 400;
     }
- 
+
     .hero h1 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2.4rem, 5.5vw, 4rem);
@@ -164,12 +154,12 @@
       margin-bottom: 1.5rem;
       letter-spacing: -0.01em;
     }
- 
+
     .hero h1 em {
       font-style: italic;
       font-weight: 300;
     }
- 
+
     .hero-body {
       font-size: 1.15rem;
       color: var(--body-dark);
@@ -178,14 +168,14 @@
       margin-bottom: 2.5rem;
       font-weight: 300;
     }
- 
+
     .hero-actions {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
       align-items: center;
     }
- 
+
     .btn-primary {
       background: var(--near-black);
       color: var(--warm-white);
@@ -198,7 +188,7 @@
       font-family: 'DM Sans', sans-serif;
     }
     .btn-primary:hover { background: var(--gold); }
- 
+
     .btn-secondary {
       color: var(--gold);
       text-decoration: none;
@@ -209,15 +199,15 @@
       transition: color 0.2s, border-color 0.2s;
     }
     .btn-secondary:hover { color: var(--gold-hover); border-color: var(--gold-hover); }
- 
+
     /* ── SECTION SHARED ── */
     section { padding: 5rem 2rem; }
- 
+
     .section-inner {
       max-width: 800px;
       margin: 0 auto;
     }
- 
+
     .section-eyebrow {
       font-size: 0.7rem;
       letter-spacing: 0.22em;
@@ -226,30 +216,30 @@
       margin-bottom: 1.5rem;
       font-weight: 400;
     }
- 
+
     h2 {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
       line-height: 1.2;
       color: var(--near-black);
     }
- 
+
     /* ── GAP SECTION ── */
     .gap-section {
       background: var(--near-black);
       color: var(--body-dark);
     }
- 
+
     .gap-section .section-eyebrow { color: var(--gold); }
- 
+
     .gap-section h2 {
       color: var(--warm-white);
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
       margin-bottom: 2rem;
     }
- 
+
     .gap-section h2 em { font-style: italic; font-weight: 300; }
- 
+
     .gap-body p {
       font-size: 1rem;
       line-height: 1.8;
@@ -257,14 +247,14 @@
       color: var(--body-dark);
       font-weight: 300;
     }
- 
+
     .gap-body p:last-child { margin-bottom: 0; }
- 
+
     .gap-body strong {
       color: var(--warm-white);
       font-weight: 400;
     }
- 
+
     .not-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -273,7 +263,7 @@
       padding-top: 3rem;
       border-top: 1px solid var(--border-dark);
     }
- 
+
     .not-item h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.2rem;
@@ -281,23 +271,23 @@
       color: var(--warm-white);
       margin-bottom: 0.6rem;
     }
- 
+
     .not-item p {
       font-size: 0.88rem;
       line-height: 1.7;
       margin-bottom: 0 !important;
     }
- 
+
     /* ── HOW IT WORKS ── */
     .how-section { background: var(--warm-white); }
- 
+
     .how-section h2 {
       font-size: clamp(1.8rem, 3vw, 2.4rem);
       margin-bottom: 3rem;
     }
- 
+
     .steps { display: flex; flex-direction: column; gap: 0; }
- 
+
     .step {
       display: grid;
       grid-template-columns: 80px 1fr;
@@ -306,7 +296,7 @@
       border-bottom: 1px solid var(--border-light);
     }
     .step:first-child { border-top: 1px solid var(--border-light); }
- 
+
     .step-num {
       font-family: 'Cormorant Garamond', serif;
       font-size: 3rem;
@@ -315,7 +305,7 @@
       line-height: 1;
       padding-top: 0.2rem;
     }
- 
+
     .step-content h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.3rem;
@@ -323,31 +313,31 @@
       color: var(--near-black);
       margin-bottom: 0.75rem;
     }
- 
+
     .step-content p {
       font-size: 0.95rem;
       line-height: 1.8;
       color: var(--body-light);
       font-weight: 300;
     }
- 
+
     .step-content strong { color: var(--near-black); font-weight: 500; }
- 
+
     /* ── WHO THIS IS FOR ── */
     .who-section { background: #f0ece5; }
- 
+
     .who-section h2 {
       font-size: clamp(1.8rem, 3vw, 2.4rem);
       margin-bottom: 2.5rem;
     }
- 
+
     .who-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 0;
     }
- 
+
     .who-list li {
       padding: 1rem 0;
       border-bottom: 1px solid var(--border-light);
@@ -358,98 +348,99 @@
       padding-left: 1.2rem;
       position: relative;
     }
- 
+
     .who-list li::before {
       content: '—';
       position: absolute;
       left: 0;
       color: var(--gold);
     }
- 
+
     .who-list li:first-child { border-top: 1px solid var(--border-light); }
- 
+
     /* ── WORKSHOP CARD ── */
     .workshop-section { background: var(--warm-white); }
- 
+
     .workshop-card {
       border: 1px solid var(--border-light);
       padding: 3rem;
       max-width: 680px;
+      background: var(--near-black);
     }
- 
+
     .workshop-card .badge {
       display: inline-block;
       font-size: 0.68rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--warm-white);
+      color: var(--near-black);
       background: var(--gold);
       padding: 0.3rem 0.75rem;
       margin-bottom: 1.5rem;
     }
- 
+
     .workshop-card h2 {
       font-size: clamp(1.6rem, 3vw, 2.2rem);
       margin-bottom: 1.5rem;
-      color: var(--near-black);
+      color: var(--warm-white);
     }
- 
+
     .workshop-card h2 em { font-style: italic; font-weight: 300; }
- 
+
     .workshop-details {
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
       margin-bottom: 2rem;
       font-size: 0.9rem;
-      color: var(--muted-light);
+      color: var(--body-dark);
       font-weight: 300;
     }
- 
+
     .workshop-details span { display: block; }
- 
+
     .workshop-price {
       font-family: 'Cormorant Garamond', serif;
       font-size: 2.2rem;
       font-weight: 400;
-      color: var(--near-black);
+      color: var(--warm-white);
       margin-bottom: 0.3rem;
     }
- 
+
     .workshop-price-note {
       font-size: 0.82rem;
-      color: var(--muted-light);
+      color: var(--body-dark);
       margin-bottom: 2rem;
       font-weight: 300;
     }
- 
+
     .workshop-card-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
- 
+
     /* ── ABOUT ── */
     .about-section { background: var(--near-black); color: var(--body-dark); }
- 
+
     .about-section .section-eyebrow { color: var(--gold); }
- 
+
     .about-grid {
       display: grid;
       grid-template-columns: 200px 1fr;
       gap: 3rem;
       align-items: start;
     }
- 
+
     .about-photo {
       width: 100%;
       aspect-ratio: 3/4;
       object-fit: cover;
       filter: grayscale(20%);
     }
- 
+
     .about-content h2 {
       color: var(--warm-white);
       font-size: clamp(1.6rem, 2.5vw, 2rem);
       margin-bottom: 0.3rem;
     }
- 
+
     .about-title {
       font-size: 0.82rem;
       letter-spacing: 0.08em;
@@ -457,7 +448,7 @@
       margin-bottom: 1.5rem;
       font-weight: 400;
     }
- 
+
     .about-content p {
       font-size: 0.95rem;
       line-height: 1.85;
@@ -465,18 +456,18 @@
       color: var(--body-dark);
       font-weight: 300;
     }
- 
+
     .about-content p:last-child { margin-bottom: 0; }
     .about-content strong { color: var(--warm-white); font-weight: 400; }
- 
+
     /* ── CONTACT ── */
     .contact-section { background: var(--warm-white); text-align: center; }
- 
+
     .contact-section h2 {
       font-size: clamp(1.8rem, 3vw, 2.4rem);
       margin-bottom: 1rem;
     }
- 
+
     .contact-section p {
       font-size: 0.97rem;
       color: var(--muted-light);
@@ -486,16 +477,16 @@
       margin-right: auto;
       font-weight: 300;
     }
- 
+
     .contact-note {
       margin-top: 1.5rem;
       font-size: 0.83rem;
       color: var(--muted-light);
     }
- 
+
     .contact-email-link { color: var(--gold); text-decoration: none; }
     .contact-email-link:hover { color: var(--gold-hover); }
- 
+
     /* ── FOOTER ── */
     footer {
       background: var(--near-black);
@@ -506,34 +497,33 @@
       color: var(--body-dark);
       letter-spacing: 0.06em;
     }
- 
+
     /* ── RESPONSIVE ── */
     @media (max-width: 700px) {
       nav { padding: 0 1rem; }
       .nav-links { gap: 1rem; }
       .nav-links li:not(:last-child):not(.nav-dropdown) { display: none; }
- 
+
       .hero { padding: 3rem 1.25rem 3rem; min-height: 80vh; }
- 
+
       section { padding: 3.5rem 1.25rem; }
- 
+
       .about-grid { grid-template-columns: 1fr; }
       .about-photo { max-width: 160px; }
- 
+
       .workshop-card { padding: 2rem 1.5rem; }
- 
+
       .step { grid-template-columns: 50px 1fr; gap: 0 1rem; }
       .step-num { font-size: 2rem; }
     }
   </style>
 </head>
 <body>
- 
+
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <span class="nav-logo-name">The Integration Gym</span>
-    <span class="nav-logo-tag">Presence · Practice · Connection</span>
+    <img src="tigd_logo_transparent.png" alt="The Integration Gym" class="nav-logo-img">
   </a>
   <ul class="nav-links">
     <li><a href="#gap">The Work</a></li>
@@ -549,7 +539,7 @@
     <li><a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener" class="nav-cta">Schedule a Call</a></li>
   </ul>
 </nav>
- 
+
 <!-- HERO -->
 <div class="hero-section-wrap">
 <section class="hero">
@@ -558,11 +548,11 @@
   <p class="hero-body">But insight, however brilliant, doesn't create the change you desire.</p>
   <div class="hero-actions">
     <a href="#gap" class="btn-primary" style="background: var(--warm-white); color: var(--near-black);">What is this</a>
-    <a href="tigd-weekend-workshop.html" class="btn-primary" style="background: transparent; color: var(--gold); border: 1px solid var(--gold); letter-spacing: 0.06em;">June Workshop →</a>
+    <a href="tigd-weekend-workshop.html" class="btn-primary" style="background: var(--near-black); color: var(--warm-white); border: 1px solid var(--warm-white);">June Workshop →</a>
   </div>
 </section>
 </div>
- 
+
 <!-- GAP SECTION -->
 <section class="gap-section" id="gap">
   <div class="section-inner">
@@ -575,7 +565,7 @@
       <p>Insight doesn't reach that layer. Not because it isn't smart enough. Because rational understanding doesn't have jurisdiction there. We weren't logical beings when we laid down these tracks. We were sensory beings, experiencing the responses we elicited in others — and from those experiences we built our patterns, our rules, our self-concept.</p>
       <p><strong>What changes patterns is a different kind of evidence</strong> — not more understanding, but new relational experience that gives the nervous system something it hasn't had before. The Integration Gym is built specifically for that.</p>
     </div>
- 
+
     <div class="not-grid">
       <div class="not-item">
         <h3>Not Therapy</h3>
@@ -596,14 +586,14 @@
     </div>
   </div>
 </section>
- 
+
 <!-- HOW IT WORKS -->
 <section class="how-section">
   <div class="section-inner">
     <p class="section-eyebrow">How it works</p>
     <h2>Three things that don't happen alone</h2>
     <div class="steps">
- 
+
       <div class="step">
         <div class="step-num">01</div>
         <div class="step-content">
@@ -611,7 +601,7 @@
           <p>The self-concept — the operating system organized around early conclusions about acceptability — maintains itself in relationship. It activates in relationship. Solo work can illuminate it. <strong>It cannot provide the conditions where it actually runs</strong> — where you can feel the pull to perform, manage, or disappear as it's happening, not in retrospect.</p>
         </div>
       </div>
- 
+
       <div class="step">
         <div class="step-num">02</div>
         <div class="step-content">
@@ -619,7 +609,7 @@
           <p>The work begins with something surprisingly simple and surprisingly hard: <strong>learning to be with yourself in the presence of others.</strong> Not with others in the presence of yourself — with yourself, while others are present. This is the exact inversion of the adaptive pattern. What tends to happen in that practice, sometimes for the first time, is the discovery that there's a center within you — perhaps a center different than the one you may feel as your narrator. Something there to be with. Access to that center is what makes everything else possible.</p>
         </div>
       </div>
- 
+
       <div class="step">
         <div class="step-num">03</div>
         <div class="step-content">
@@ -627,11 +617,11 @@
           <p>The work in the Gym happens in slow motion so it can run in real time everywhere else. <strong>The capacity that develops is portable.</strong> It doesn't require this container to sustain itself. It becomes available with anyone — in any relationship, in any moment where the pattern would otherwise run unchecked — without the other person needing to be practicing or even aware.</p>
         </div>
       </div>
- 
+
     </div>
   </div>
 </section>
- 
+
 <!-- WHO THIS IS FOR -->
 <section class="who-section">
   <div class="section-inner">
@@ -647,7 +637,7 @@
     </ul>
   </div>
 </section>
- 
+
 <!-- WORKSHOP CARD -->
 <section class="workshop-section">
   <div class="section-inner">
@@ -663,12 +653,12 @@
       <p class="workshop-price-note">A brief conversation precedes enrollment — not to screen credentials, but to confirm readiness and fit.</p>
       <div class="workshop-card-actions">
         <a href="tigd-weekend-workshop.html" class="btn-primary">Full Details</a>
-        <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener" class="btn-secondary">Schedule a Conversation →</a>
+        <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener" class="btn-secondary" style="color: var(--warm-white); border-color: var(--warm-white);">Schedule a Conversation →</a>
       </div>
     </div>
   </div>
 </section>
- 
+
 <!-- ABOUT -->
 <section class="about-section" id="about">
   <div class="section-inner">
@@ -687,7 +677,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- CONTACT -->
 <section class="contact-section">
   <div class="section-inner">
@@ -697,12 +687,12 @@
     <p class="contact-note">Or reach out directly: <span id="email-slot"></span></p>
   </div>
 </section>
- 
+
 <!-- FOOTER -->
 <footer>
   The Integration Gym &nbsp;·&nbsp; North of Ballard, Seattle
 </footer>
- 
+
 <script>
   (function() {
     var u = 'dirk'; var d = 'integrationgym.org';
@@ -712,7 +702,7 @@
       el.innerHTML = '<a href="mailto:' + e + '" class="contact-email-link">' + e + '</a>';
     }
   })();
- 
+
   (function() {
     document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
       var timer;
@@ -730,6 +720,6 @@
     });
   })();
 </script>
- 
+
 </body>
 </html>
