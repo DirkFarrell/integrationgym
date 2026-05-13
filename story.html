@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Integration Gym — a space built from the inside out." />
+  <title>The Integration Gym</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --warm-white: #f5f2ed;
+      --near-black: #1a1a18;
+      --gold: #b8860b;
+      --body: #2e2c29;
+      --muted: #7a7772;
+      --border: #e0dbd3;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--warm-white);
+      color: var(--body);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.15rem, 2vw, 1.35rem);
+      line-height: 1.85;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 3rem;
+      height: 64px;
+      background: rgba(245,242,237,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo-img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--gold); }
+
+    /* ESSAY */
+    .essay-wrap {
+      padding-top: 120px;
+      padding-bottom: 8rem;
+    }
+
+    .essay {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* BYLINE */
+    .byline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4rem;
+      display: block;
+    }
+
+    /* BODY TEXT */
+    .essay p {
+      margin-bottom: 2rem;
+      font-weight: 300;
+      color: var(--body);
+    }
+
+    .essay p.emphasis {
+      font-style: italic;
+      font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+      color: var(--near-black);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    /* BREATH — section break */
+    .breath {
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--gold);
+      margin: 3rem 0;
+      opacity: 0.6;
+    }
+
+    /* CLOSING */
+    .closing {
+      margin-top: 5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .closing p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .closing-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--near-black);
+      margin-top: 2rem;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+
+    .closing-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-reach {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      background: var(--near-black);
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      transition: background 0.2s;
+      margin-right: 1.5rem;
+    }
+    .btn-reach:hover { background: var(--gold); }
+
+    .btn-site {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+    .btn-site:hover { color: var(--body); border-color: var(--body); }
+
+    /* FOOTER */
+    footer {
+      background: var(--near-black);
+      padding: 1.5rem 3rem;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: #5a5854;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 1.25rem; }
+      .essay { padding: 0 1.25rem; }
+      .essay-wrap { padding-top: 96px; }
+      .btn-reach { display: block; margin-right: 0; margin-bottom: 1rem; text-align: center; }
+      .btn-site { display: block; text-align: center; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="tigd_logo_transparent.png" alt="The Integration Gym" class="nav-logo-img">
+  </a>
+  <a href="index.html" class="nav-link">The Work →</a>
+</nav>
+
+<div class="essay-wrap">
+  <article class="essay">
+
+    <span class="byline">Dirk Farrell &nbsp;·&nbsp; Founder, The Integration Gym</span>
+
+    <p>I'm trying to remember times when I've suffered the most. I'm struggling to find the feelings. That's a bit wild.</p>
+
+    <p>I would feel massively off, massively agitated — angry, unheard, unseen, un-gotten. I had nobody to step in and help me. I had no way to LET someone in to help me. I felt gross about myself. At my worst, I was closest to violence.</p>
+
+    <p>Other times I felt deep shame, deep loneliness — absolutely isolated with others around, because I was so locked into my need to keep everything stuffed and to cope by myself. And there was so much blame. Blame everywhere whether I kept it in or not; my parents, siblings, past friends, wife, self, teachers that didn't care. It was brutal.</p>
+
+    <span class="breath"></span>
+
+    <p class="emphasis">That loneliness. That not being responded to. That not knowing how to respond to even our closest loved ones in ways that bridge rather than avoid the subtle and dismissable discomfort.</p>
+
+    <p>And when we can get by, we're not only not closer to being seen or seeing the other, we’re farther away. We don't often take on seeing the other when we're starving to be seen ourselves or our seeing registers as unwanted.</p>
+
+    <span class="breath"></span>
+
+    <p>I just knew something deeply wrong was inherent in me. It didn't show up all the time, but when it did, I knew it in my bones, in my looping narrator's voice, in the blame that oozed through me: <em>something about me was absolutely unacceptable.</em></p>
+
+    <p>And everything limiting, negating, self-sabotaging that I've felt and believed about myself since, along with my achieving, managing, stuffing, anger, blame, and passing for okay — was organized around that conclusion — to either prove I was unacceptable, or to protect me against having it confirmed yet again how unacceptable I was.</p>
+
+    <span class="breath"></span>
+
+    <p>All through those times, I was living a lie. And even during the times when I knew it was a lie, I felt helpless to change. I didn't know how. I didn't know where to turn. I read a fair amount, seeking answers. I worked with some therapists. I did my damnedest. </p>
+
+    <p>I wasn't drawn to masking my suffering with alcohol, drugs, or anything else. I knew those weren't fixes. I wanted to find the cause and solution at the deepest level possible. Meditation, mindfulness, readings on Buddhism, Taoism, Stoicism, Hakomi, prayer, self-help books and more were helpful, but they didn’t tell me HOW. My pursuit wasn’t consistent or brave. It happened in fits and starts, with long stretches of avoidance in between. </p>
+
+    <p>And then I experienced: the commonality is me and how I feel about myself in the presence of others — different with different people. I experienced how much and how long I had been abandoning myself, abandoning my center, based on how I feel around others.</p>
+
+    <p class="emphasis">That struck me as the source of my suffering and that is the foundation for The Integration Gym.</p>
+
+    <div class="closing">
+      <p>If any of this landed somewhere in you — that's enough. That's where this work begins. With the recognition that something real is in the way for you, and that it didn't form in isolation.</p>
+      <p>Reach out. We'll figure out together whether this is the right fit.</p>
+
+      <span class="closing-name">Dirk Farrell</span>
+      <span class="closing-title">Founder, The Integration Gym · Seattle</span>
+
+      <div>
+        <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener" class="btn-reach">Schedule a Conversation</a>
+        <a href="index.html" class="btn-site">Explore the work →</a>
+      </div>
+    </div>
+
+  </article>
+</div>
+
+<footer>
+  The Integration Gym &nbsp;·&nbsp; Seattle, WA &nbsp;·&nbsp; integrationgym.org
+</footer>
+
+</body>
+</html>
