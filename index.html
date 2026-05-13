@@ -88,6 +88,14 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown > a { cursor: pointer; display: flex; align-items: center; gap: 0.25rem; }
     .nav-dropdown > a::after { content: '▾'; font-size: 0.6rem; }
+    .nav-dropdown::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 12px;
+    }
     .dropdown-menu {
       display: none;
       position: absolute;
@@ -544,7 +552,7 @@
   <p class="hero-body">But insight, however brilliant, doesn't create the change you desire.</p>
   <div class="hero-actions">
     <a href="#gap" class="btn-primary" style="background: var(--warm-white); color: var(--near-black);">What is this</a>
-       <a href="tigd-weekend-workshop.html" class="btn-primary" style="background: transparent; color: var(--gold); border: 1px solid var(--gold); letter-spacing: 0.06em;">June Workshop →</a>
+    <a href="tigd-weekend-workshop.html" class="btn-primary" style="background: transparent; color: var(--gold); border: 1px solid var(--gold); letter-spacing: 0.06em;">June Workshop →</a>
   </div>
 </section>
 </div>
