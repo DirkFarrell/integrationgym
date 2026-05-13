@@ -19,7 +19,7 @@
       line-height: 1.75;
       -webkit-font-smoothing: antialiased;
     }
- 
+
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -27,19 +27,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.1rem 3rem;
+      padding: 0 3rem;
+      height: 64px;
       background: rgba(245,242,237,0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid #ddd9d2;
     }
     .nav-logo {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 600;
-      font-size: 0.95rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #1a1a18;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+    .nav-logo-img {
+      height: 38px;
+      width: auto;
+      display: block;
     }
     .nav-center {
       display: flex;
@@ -113,7 +115,7 @@
       transition: background 0.2s;
     }
     .nav-cta:hover { background: #9a7009; }
- 
+
     .hamburger {
       display: none;
       flex-direction: column;
@@ -124,7 +126,7 @@
       border: none;
     }
     .hamburger span { display: block; width: 25px; height: 2px; background: #1a1a18; }
- 
+
     .page-header {
       padding: 10rem 3rem 5rem;
       background: #ffffff;
@@ -149,11 +151,11 @@
       color: #1a1a18;
     }
     .page-intro { color: #3d3d3a; font-size: 1.12rem; line-height: 1.8; max-width: 680px; }
- 
+
     section { padding: 5rem 3rem; }
     .content-section { background: #f5f2ed; }
     .content-inner { max-width: 720px; margin: 0 auto; }
- 
+
     h2 {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.8rem, 3.5vw, 2.4rem);
@@ -169,7 +171,7 @@
     a { color: #b8860b; text-decoration: none; font-weight: 500; }
     a:hover { text-decoration: underline; }
     strong { color: #1a1a18; font-weight: 600; }
- 
+
     .testimonial-box {
       background: #1a1a18;
       padding: 3.5rem 3rem;
@@ -178,7 +180,7 @@
     }
     .testimonial-text { color: #9a9790; font-size: 1.05rem; line-height: 1.85; margin-bottom: 1.5rem; font-style: italic; }
     .testimonial-attribution { color: #b8860b; font-size: 0.95rem; font-weight: 500; }
- 
+
     .logistics-box {
       background: #ffffff;
       border: 1px solid #ddd9d2;
@@ -186,7 +188,7 @@
       margin: 2rem 0;
     }
     .logistics-box p { margin-bottom: 0.3rem; font-size: 1rem; }
- 
+
     .cta-section {
       text-align: center;
       padding: 4rem 3rem;
@@ -213,7 +215,7 @@
       transition: background 0.2s;
     }
     .btn-primary:hover { background: #9a7009; text-decoration: none; }
- 
+
     footer {
       padding: 3rem 3rem 2rem;
       background: #ffffff;
@@ -225,7 +227,7 @@
       color: #6b6860;
     }
     .footer-logo { font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1a1a18; }
- 
+
     @media (max-width: 768px) {
       .hamburger { display: flex; }
       nav { padding: 1rem 1.5rem; }
@@ -265,9 +267,11 @@
   </style>
 </head>
 <body>
- 
+
   <nav>
-    <a href="index.html" class="nav-logo">The Integration Gym</a>
+    <a href="index.html" class="nav-logo">
+      <img src="tigd_logo_transparent.png" alt="The Integration Gym" class="nav-logo-img">
+    </a>
     <button class="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -287,7 +291,7 @@
     </ul>
     <a href="https://calendly.com/dirk-integrationgym/30min" class="nav-cta">Schedule a Call</a>
   </nav>
- 
+
   <header class="page-header">
     <div class="page-header-inner">
       <span class="eyebrow">1:1 Coaching</span>
@@ -295,7 +299,7 @@
       <p class="page-intro">One-on-one sessions using the same relational approach as the workshop, in a focused dyadic container. For people who want individual attention — whether as preparation for group work, alongside other personal practice, or as a standalone container when group settings don't fit.</p>
     </div>
   </header>
- 
+
   <section class="content-section">
     <div class="content-inner">
       <h2>What's different from group work</h2>
@@ -309,12 +313,12 @@
         <li>Faster cycles of noticing and adjusting</li>
       </ul>
       <p>What doesn't change: this is still peer-based work, not therapy. I'm not diagnosing or fixing. We're practicing together in real time.</p>
- 
+
       <h2>What happens in a session</h2>
       <p>Sessions are 70 minutes. We work with what's present — what you're noticing in your life, what's showing up in the room between us, what patterns are running right now.</p>
       <p>The work is embodied and relational. We're not just talking about your patterns. We're working with them as they arise — in your body, in the interaction, in real time.</p>
       <p>Between sessions, you practice. The work doesn't stop when the session ends — it continues in your relationships, your daily life, the moments when the pattern tries to run automatically.</p>
- 
+
       <h2>Who this is for</h2>
       <p>1:1 sessions work well if:</p>
       <ul>
@@ -325,38 +329,38 @@
         <li>You need space to work with material that feels too vulnerable for group process</li>
       </ul>
       <p>This isn't a substitute for group work if you're avoiding the group container. If you're capable of group work, that's where the deepest shifts happen. But if you genuinely need individual attention, 1:1 sessions can be valuable.</p>
- 
+
       <div class="testimonial-box">
         <p class="testimonial-text">"Before working with Dirk, I was trapped in a cycle of anxiety, anger, and self-blame, constantly feeling like I wasn't enough. Despite previous attempts with therapy and medication, nothing brought lasting change.</p>
         <p class="testimonial-text">Working with Dirk has been a game-changer. I've gained the strength to face my discomfort and traumas with more calm and acceptance. Dirk's unique presence — firm yet nurturing — has helped me see and embrace parts of myself I had long avoided.</p>
         <p class="testimonial-text">Dirk's patience, boundary-setting, and the safe space he created allowed me to confront and process my fears in ways I couldn't have imagined. This journey has felt like a warm, secure tent where I could explore my deepest concerns and emerge feeling more whole and capable."</p>
         <p class="testimonial-attribution">— Nicola Rigor, Marketing Consultant</p>
       </div>
- 
+
       <h2>Logistics</h2>
       <div class="logistics-box">
-        <p><strong>Session length:</strong> 70 minutes</p>
+        <p><strong>Session length:</strong> Up to 75 minutes</p>
         <p><strong>Fee:</strong> $160 per session</p>
         <p><strong>Location:</strong> North of Ballard, Seattle (in-person preferred)</p>
         <p><strong>Remote:</strong> Video sessions available when needed</p>
       </div>
- 
+
       <h2>Next step</h2>
       <p>Email me directly at <span id="content-email"></span>. We'll set up a brief conversation to discuss what you're working with and whether this is the right fit.</p>
     </div>
   </section>
- 
+
   <div class="cta-section">
     <h3>Schedule a conversation</h3>
     <p>20 minutes to discuss what you're working with and whether 1:1 sessions make sense.</p>
     <a href="contact.html#coaching" class="btn-primary">Get Started</a>
   </div>
- 
+
   <footer>
     <span class="footer-logo">The Integration Gym</span>
     <span>North of Ballard · Seattle, WA</span>
   </footer>
- 
+
   <script>
     (function() {
       var u = 'dirk'; var d = 'integrationgym.org';
@@ -364,7 +368,7 @@
       var el = document.getElementById('content-email');
       if (el) el.innerHTML = '<a href="mailto:' + e + '">' + e + '</a>';
     })();
- 
+
     const hamburger = document.querySelector('.hamburger');
     const navCenter = document.querySelector('.nav-center');
     if (hamburger && navCenter) {
@@ -377,7 +381,7 @@
         });
       });
     }
- 
+
     (function() {
       document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
         var timer;
