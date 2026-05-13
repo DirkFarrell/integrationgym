@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Way Out Is Through — The Integration Gym</title>
+<title>TIG Weekend — The Integration Gym</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
     line-height: 1.7;
     overflow-x: hidden;
   }
- 
+
   /* NAV */
   nav {
     position: fixed;
@@ -27,19 +27,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.1rem 3rem;
+    padding: 0 3rem;
+    height: 64px;
     background: rgba(245,242,237,0.96);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #ddd9d2;
   }
   .nav-logo {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 600;
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #1a1a18;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  .nav-logo-img {
+    height: 38px;
+    width: auto;
+    display: block;
   }
   .nav-center {
     display: flex;
@@ -117,7 +119,7 @@
   .nav-cta:hover { background: #9a7009; }
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
   .hamburger span { display: block; width: 25px; height: 2px; background: #1a1a18; }
- 
+
   /* HERO */
   .hero {
     min-height: 100vh;
@@ -243,12 +245,12 @@
   }
   .brand { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; letter-spacing: 0.08em; color: #9e9485; }
   .spots { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: #b85c38; }
- 
+
   /* SECTIONS */
   section { padding: clamp(4rem, 10vw, 8rem) clamp(2rem, 8vw, 8rem); }
   .rule { width: 3rem; height: 1px; background: #b85c38; margin-bottom: 2.5rem; }
   .section-label { font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase; color: #9e9485; margin-bottom: 1.5rem; }
- 
+
   /* OPENING */
   .opening { background: #ede6d6; }
   .opening-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; }
@@ -256,7 +258,7 @@
   .opening-left h2 em { font-style: italic; color: #b85c38; }
   .opening-right p { font-size: 1.05rem; line-height: 1.85; color: #3a3630; margin-bottom: 1.5rem; }
   .opening-right p:last-child { margin-bottom: 0; }
- 
+
   /* WHAT */
   .what { background: #f5f0e8; }
   .what-intro { max-width: 60ch; margin-bottom: 4rem; }
@@ -269,7 +271,7 @@
   .pillar-number { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: #d4c9b0; line-height: 1; margin-bottom: 1rem; }
   .pillar h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 1.3rem; margin-bottom: 0.75rem; color: #1c1a17; }
   .pillar p { font-size: 0.92rem; line-height: 1.75; color: #9e9485; }
- 
+
   /* NOT THIS */
   .not-this { background: #1c1a17; color: #ede6d6; }
   .not-this .rule { background: #b85c38; }
@@ -281,7 +283,7 @@
   .distinction-list li { padding-left: 1.5rem; position: relative; font-size: 0.95rem; line-height: 1.75; color: #b8a98e; }
   .distinction-list li::before { content: '—'; position: absolute; left: 0; color: #b85c38; }
   .distinction-list li strong { color: #ede6d6; font-weight: 400; }
- 
+
   /* FOR YOU */
   .for-you { background: #f5f0e8; }
   .for-you-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; }
@@ -291,7 +293,7 @@
   .recognition { padding: 1.5rem 2rem; border-bottom: 1px solid #d4c9b0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; line-height: 1.5; color: #4a5240; transition: background 0.2s, padding-left 0.2s; }
   .recognition:last-child { border-bottom: none; }
   .recognition:hover { background: #ede6d6; padding-left: 2.5rem; }
- 
+
   /* LOGISTICS */
   .logistics { background: #4a5240; color: #ede6d6; }
   .logistics .rule { background: #ede6d6; opacity: 0.3; }
@@ -301,7 +303,7 @@
   .logistics-note { border-top: 1px solid rgba(237,230,214,0.15); padding-top: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
   .logistics-note p { font-size: 0.92rem; line-height: 1.8; color: rgba(237,230,214,0.65); }
   .logistics-note strong { color: #ede6d6; font-weight: 400; }
- 
+
   /* RIVER */
   .river-section { background: #ede6d6; }
   .river-grid { display: grid; grid-template-columns: 1fr 2fr; gap: clamp(3rem, 6vw, 6rem); align-items: start; }
@@ -311,7 +313,7 @@
   .credentials { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.5rem; }
   .credential { font-size: 0.85rem; color: #9e9485; padding-left: 1.25rem; position: relative; }
   .credential::before { content: '·'; position: absolute; left: 0; color: #b85c38; font-size: 1.2rem; line-height: 1; top: 0.1rem; }
- 
+
   /* APPLY */
   .apply { background: #f5f0e8; text-align: center; }
   .apply-inner { max-width: 52ch; margin: 0 auto; }
@@ -322,7 +324,7 @@
   .apply-detail .meta-label { margin-bottom: 0.25rem; }
   .apply .btn-primary { font-size: 0.78rem; }
   .apply-small { margin-top: 1.5rem; font-size: 0.8rem; color: #9e9485; line-height: 1.6; }
- 
+
   /* FOOTER */
   footer {
     background: #1c1a17;
@@ -336,12 +338,12 @@
   footer .brand { color: rgba(237,230,214,0.4); font-size: 0.85rem; }
   footer a { color: rgba(237,230,214,0.4); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.08em; transition: color 0.2s; }
   footer a:hover { color: #ede6d6; }
- 
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
- 
+
   @media (max-width: 768px) {
     .hamburger { display: flex !important; }
     nav { padding: 1rem 1.5rem; }
@@ -376,9 +378,11 @@
 </style>
 </head>
 <body>
- 
+
   <nav>
-    <a href="index.html" class="nav-logo">The Integration Gym</a>
+    <a href="index.html" class="nav-logo">
+      <img src="tigd_logo_transparent.png" alt="The Integration Gym" class="nav-logo-img">
+    </a>
     <button class="hamburger" aria-label="Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -398,13 +402,13 @@
     </ul>
     <a href="https://calendly.com/dirk-integrationgym/30min" class="nav-cta">Schedule a Call</a>
   </nav>
- 
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-texture"></div>
   <div class="hero-inner">
     <p class="eyebrow">Weekend Workshop &nbsp;·&nbsp; Seattle &nbsp;·&nbsp; June 27-28, 2026</p>
-    <h1 class="hero-title">The Way Out Is Through<span class="hero-period">.</span></h1>
+    <h1 class="hero-title">TIG Weekend<span class="hero-period">.</span></h1>
     <p class="hero-tagline">A two-day facilitated experience for people ready to be more at home in themselves — whatever the circumstances.</p>
     <div class="hero-meta">
       <div class="meta-item">
@@ -432,7 +436,7 @@
     <span class="brand">IntegrationGym.org</span>
   </div>
 </section>
- 
+
 <!-- OPENING -->
 <section class="opening">
   <div class="opening-grid">
@@ -447,7 +451,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- WHAT THIS IS -->
 <section class="what">
   <div class="what-intro">
@@ -473,7 +477,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- NOT THIS -->
 <section class="not-this">
   <div class="not-this-grid">
@@ -498,7 +502,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- FOR YOU -->
 <section class="for-you">
   <div class="for-you-grid">
@@ -519,7 +523,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- LOGISTICS -->
 <section class="logistics">
   <div class="section-label" style="color:rgba(237,230,214,0.4)">Details</div>
@@ -554,7 +558,7 @@
     <p><strong>Entry:</strong> A brief conversation with Dirk precedes confirmation. Payment due upon confirmation. Full refund if you withdraw before May 1st.</p>
   </div>
 </section>
- 
+
 <!-- RIVER -->
 <section class="river-section">
   <div class="river-grid">
@@ -578,7 +582,7 @@
     </div>
   </div>
 </section>
- 
+
 <!-- APPLY -->
 <section class="apply" id="apply">
   <div class="apply-inner">
@@ -599,13 +603,13 @@
     <p class="apply-small">Or reach out directly at <span id="apply-email"></span><br>Dirk will follow up to schedule a short conversation.</p>
   </div>
 </section>
- 
+
 <!-- FOOTER -->
 <footer>
   <span class="brand">The Integration Gym &nbsp;·&nbsp; IntegrationGym.org</span>
   <span id="footer-email"></span>
 </footer>
- 
+
 <script>
   (function() {
     var u = 'dirk'; var d = 'integrationgym.org';
@@ -617,7 +621,7 @@
     if (fel) fel.innerHTML = link;
     if (ael) ael.innerHTML = applyLink;
   })();
- 
+
   const hamburger = document.querySelector('.hamburger');
   const navCenter = document.querySelector('.nav-center');
   if (hamburger && navCenter) {
@@ -630,7 +634,7 @@
       });
     });
   }
- 
+
   (function() {
     document.querySelectorAll('.nav-dropdown').forEach(function(dropdown) {
       var timer;
