@@ -63,7 +63,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 1.4rem;
       list-style: none;
     }
     .nav-links a {
@@ -73,8 +73,15 @@
       color: var(--muted-light);
       letter-spacing: 0.04em;
       transition: color 0.2s;
+      white-space: nowrap;
     }
     .nav-links a:hover { color: var(--gold); }
+
+    .nav-links a.nav-arc {
+      color: var(--gold);
+      font-weight: 500;
+    }
+    .nav-links a.nav-arc:hover { color: var(--gold-hover); }
 
     .nav-dropdown { position: relative; }
     .nav-dropdown > a { cursor: pointer; display: flex; align-items: center; gap: 0.25rem; }
@@ -161,9 +168,9 @@
     }
 
     .hero-body {
-      font-size: 1.15rem;
-      color: var(--body-dark);
-      max-width: 560px;
+      font-size: 1.25rem;
+      color: #b8b4ae;
+      max-width: 580px;
       line-height: 1.65;
       margin-bottom: 2.5rem;
       font-weight: 300;
@@ -244,7 +251,7 @@
       font-size: 1rem;
       line-height: 1.8;
       margin-bottom: 1.2rem;
-      color: var(--body-dark);
+      color: #b8b4ae;
       font-weight: 300;
     }
 
@@ -253,6 +260,22 @@
     .gap-body strong {
       color: var(--warm-white);
       font-weight: 400;
+    }
+
+    .gap-arc-link {
+      display: inline-block;
+      margin-top: 2.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border-dark);
+      width: 100%;
+    }
+
+    .gap-arc-link p {
+      font-size: 0.95rem;
+      color: var(--body-dark);
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-style: italic;
     }
 
     .not-grid {
@@ -535,6 +558,7 @@
       </div>
     </li>
     <li><a href="#about">About</a></li>
+    <li><a href="love-yourself-more.html" class="nav-arc">Want to Love Yourself More?</a></li>
     <li><a href="https://theintegrationgym.substack.com" target="_blank" rel="noopener">Substack</a></li>
     <li><a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener" class="nav-cta">Schedule a Call</a></li>
   </ul>
@@ -544,8 +568,8 @@
 <div class="hero-section-wrap">
 <section class="hero">
   <p class="hero-eyebrow">North of Ballard · Seattle</p>
-  <h1>You already know what you need to change.<br><em>That's not the problem.</em></h1>
-  <p class="hero-body">But insight, however brilliant, doesn't create the change you desire.</p>
+  <h1>Insight, however brilliant,<br>doesn't create the change you desire.</h1>
+  <p class="hero-body">The sea of relationships you're always in — that's where suffering forms. And where it needs to shift.</p>
   <div class="hero-actions">
     <a href="#gap" class="btn-primary" style="background: var(--warm-white); color: var(--near-black);">What is this</a>
     <a href="tigd-weekend-workshop.html" class="btn-primary" style="background: var(--near-black); color: var(--warm-white); border: 1px solid var(--warm-white);">June Workshop →</a>
@@ -564,6 +588,11 @@
       <p>The adaptations that followed — prove, perform, defend, manage, hide, achieve — aren't character flaws. They're survival responses. And they still run reliably, <strong>below the level where insight operates,</strong> both in the presence of others and in solitude.</p>
       <p>Insight doesn't reach that layer. Not because it isn't smart enough. Because rational understanding doesn't have jurisdiction there. We weren't logical beings when we laid down these tracks. We were sensory beings, experiencing the responses we elicited in others — and from those experiences we built our patterns, our rules, our self-concept.</p>
       <p><strong>What changes patterns is a different kind of evidence</strong> — not more understanding, but new relational experience that gives the nervous system something it hasn't had before. The Integration Gym is built specifically for that.</p>
+    </div>
+
+    <div class="gap-arc-link">
+      <p>For the full arc — where this comes from, how the mechanism works, and what actually shifts —</p>
+      <a href="love-yourself-more.html" class="btn-secondary" style="color: var(--gold); border-color: var(--gold);">Want to Love Yourself More? Read the full arc →</a>
     </div>
 
     <div class="not-grid">
@@ -606,7 +635,7 @@
         <div class="step-num">02</div>
         <div class="step-content">
           <h3>Self-contact is the starting place, not the reward</h3>
-          <p>The work begins with something surprisingly simple and surprisingly hard: <strong>learning to be with yourself in the presence of others.</strong> Not with others in the presence of yourself — with yourself, while others are present. This is the exact inversion of the adaptive pattern. What tends to happen in that practice, sometimes for the first time, is the discovery that there's a center within you — perhaps a center different than the one you may feel as your narrator. Something there to be with. Access to that center is what makes everything else possible.</p>
+          <p>The work begins with something surprisingly simple and surprisingly hard: <strong>learning to be with yourself in the presence of others.</strong> Not with others in the presence of yourself — with yourself, while others are present. This is the exact inversion of the adaptive pattern. What tends to happen in that practice, sometimes for the first time, is the discovery that there's a center within you — something there to be with. Access to that center is what makes everything else possible.</p>
         </div>
       </div>
 
