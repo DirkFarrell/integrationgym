@@ -123,7 +123,7 @@
     /* ── HERO ── */
     .hero-wrap {
       background: var(--near-black);
-      padding: 6rem 2rem 5rem;
+      padding: 3.5rem 2rem 3rem;
     }
 
     .hero-inner {
@@ -163,12 +163,12 @@
       max-width: 820px;
       line-height: 1.3;
       font-weight: 300;
-      margin-bottom: 2.5rem;
+      margin-bottom: 0;
     }
 
     /* ── CONTENT SECTIONS ── */
     .content-section {
-      padding: 4.5rem 2rem;
+      padding: 3rem 2rem;
     }
 
     .content-section.dark {
@@ -365,47 +365,200 @@
       margin: 0 0 2.5rem;
     }
 
-    /* ── CTA BLOCK ── */
+    /* ── MID CONTACT ── */
+    .mid-contact {
+      margin-top: 2rem;
+      padding: 1.5rem 2rem;
+      border-left: 2px solid var(--gold);
+      background: rgba(184, 134, 11, 0.06);
+    }
+    .mid-contact p {
+      font-size: 0.95rem;
+      color: var(--body-light);
+      margin-bottom: 0;
+      font-style: italic;
+    }
+    .mid-contact a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+    }
+    .mid-contact a:hover { color: var(--gold-hover); border-color: var(--gold-hover); }
+
+    /* ── CTA SECTION ── */
     .cta-section {
       background: var(--near-black);
       padding: 5rem 2rem;
-      text-align: center;
     }
 
     .cta-inner {
-      max-width: 580px;
+      max-width: 720px;
       margin: 0 auto;
     }
 
-    .cta-section h2 {
+    .cta-statement {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
       font-weight: 400;
-      color: var(--warm-white);
-      margin-bottom: 1.2rem;
+      color: #ffffff;
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+
+    .cta-boxes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .cta-box {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .cta-box-schedule {
+      background: var(--gold);
+    }
+
+    .cta-box-email {
+      background: #2a2a28;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .cta-box-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-weight: 400;
+    }
+
+    .cta-box p {
+      font-size: 0.9rem;
+      color: #ffffff;
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 0;
+      margin-top: auto;
+    }
+
+    .cta-box-action {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.5);
+      color: #ffffff;
+      transition: background 0.2s, border-color 0.2s;
+      align-self: flex-start;
+    }
+    .cta-box-action:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; }
+
+    .cta-box-email-address {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+      margin-top: auto;
+    }
+
+    .cta-workshop {
+      border: 1px solid var(--gold);
+      padding: 2.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .cta-workshop-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .cta-workshop h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 400;
+      color: #ffffff;
       line-height: 1.2;
     }
 
-    .cta-section h2 em {
+    .cta-workshop h3 em {
       font-style: italic;
       font-weight: 300;
-      color: var(--gold);
     }
 
-    .cta-section p {
-      font-size: 1rem;
+    .cta-workshop-meta {
+      font-size: 0.95rem;
       color: #ffffff;
       font-weight: 300;
-      line-height: 1.75;
-      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
     }
 
-    .cta-actions {
+    .cta-workshop-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: #ffffff;
+      margin-bottom: 0.25rem;
+    }
+
+    .cta-workshop-note {
+      font-size: 0.9rem;
+      color: #ffffff;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .cta-workshop-actions {
       display: flex;
-      gap: 1.5rem;
-      justify-content: center;
+      gap: 1rem;
+      align-items: stretch;
       flex-wrap: wrap;
-      align-items: center;
+    }
+
+    .cta-workshop-actions .btn-primary {
+      flex: 1;
+      text-align: center;
+    }
+
+    .cta-workshop-actions .btn-box {
+      flex: 1;
+      text-align: center;
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      transition: background 0.2s;
+    }
+    .cta-workshop-actions .btn-box:hover { background: rgba(184,134,11,0.1); }
+
+    .cta-farewell {
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #ffffff;
+      font-weight: 300;
+      line-height: 1.6;
+      font-style: italic;
     }
 
     .btn-primary {
@@ -580,6 +733,7 @@
       .hero-wrap { padding: 4rem 1.25rem 3.5rem; }
       .content-section { padding: 3.5rem 1.25rem; }
       .cta-section { padding: 4rem 1.25rem; }
+      .cta-boxes { grid-template-columns: 1fr; }
       .sequence-item { grid-template-columns: 36px 1fr; gap: 0 1rem; }
       .workshop-card { padding: 2rem 1.5rem; }
     }
@@ -616,7 +770,7 @@
   <div class="hero-inner">
     <p class="hero-eyebrow">The Integration Gym · A Full Arc</p>
     <h1>Want to Love Yourself More?</h1>
-    <p class="hero-sub">A full arc worth embracing because — closing the gap between knowing and doing runs through relationship.</p>
+    <p class="hero-sub">An arc worth remembering — from the gap between knowing and doing, to peace of being — with yourself and others.</p>
   </div>
 </div>
 
@@ -684,6 +838,10 @@
     </div>
 
     <span class="followthrough">That's it. That's what we're building toward.</span>
+
+    <div class="mid-contact">
+      <p>If this is already landing — <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener">schedule a conversation</a> or <a href="mailto:dirk@integrationgym.org">email Dirk directly</a>. No need to read further.</p>
+    </div>
   </div>
 </section>
 
@@ -725,12 +883,12 @@
 <section class="content-section cream">
   <div class="content-inner">
     <span class="section-eyebrow">The Full Sequence</span>
-    <h2 class="section-title">From wound to portability — <em>the complete arc.</em></h2>
+    <h2 class="section-title">From suffering to peace — <em>the complete arc.</em></h2>
 
     <div class="sequence">
       <div class="sequence-item">
         <div class="sequence-num">—</div>
-        <div class="sequence-text">The original wounding is relational and specific — not ego in the abstract, not suffering as a general condition, but the very particular experience of not being perceived as acceptable, needing to be acceptable to survive emotionally if not physically, and the adaptations that followed.</div>
+        <div class="sequence-text">Original wounding is relational and specific — not ego in the abstract, not suffering as a general condition, but the very particular experience of not being perceived as acceptable, needing to be acceptable to survive emotionally if not physically, and the adaptations that followed.</div>
       </div>
       <div class="sequence-item">
         <div class="sequence-num">—</div>
@@ -755,27 +913,40 @@
 <!-- CTA SECTION -->
 <section class="cta-section">
   <div class="cta-inner">
-    <h2>If something in this<br>is <em>landing for you</em> —</h2>
-    <p>I'd love to hear from you. Reply to any email, reach out directly, or schedule a short conversation. I'm a real person on the other end of it.</p>
-    <div class="cta-actions">
-      <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener" class="btn-primary">Schedule a Conversation</a>
-      <a href="mailto:dirk@integrationgym.org" class="btn-secondary">Or email directly →</a>
+
+    <p class="cta-statement">Your right next step is the most important thing now. If that step takes you toward TIG, you can schedule a conversation with me or email me directly. Links below.</p>
+
+    <div class="cta-boxes">
+      <div class="cta-box cta-box-schedule">
+        <span class="cta-box-label">Schedule</span>
+        <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener" class="cta-box-action">Schedule a Conversation</a>
+        <p>Our chance to meet. All of your questions are welcome. 15 minutes.</p>
+      </div>
+      <div class="cta-box cta-box-email">
+        <span class="cta-box-label">Email</span>
+        <a href="mailto:dirk@integrationgym.org" class="cta-box-action">dirk@integrationgym.org</a>
+        <p>Reach out directly. I'm a real person on the other end of it.</p>
+      </div>
     </div>
 
-    <div class="workshop-card">
-      <span class="badge">Now Open</span>
-      <h3>Weekend Workshop<br><em>June 27–28, 2026</em></h3>
-      <div class="workshop-details">
-        Saturday–Sunday · North of Ballard, Seattle<br>
-        Limited to 8 participants
+    <div class="cta-workshop">
+      <div class="cta-workshop-header">
+        <h3>The Integration Gym Workshop<br><em>June 27–28, 2026</em></h3>
+        <span class="badge">Now Open</span>
       </div>
-      <div class="workshop-price">$595</div>
-      <p class="workshop-price-note">A brief conversation precedes enrollment — to confirm readiness and fit, in both directions.</p>
-      <div class="workshop-actions">
+      <div class="cta-workshop-meta">
+        Saturday–Sunday · Limited to 8 participants · North of Ballard, Seattle
+      </div>
+      <div class="cta-workshop-price">$595</div>
+      <p class="cta-workshop-note">A brief conversation precedes enrollment — to confirm readiness and fit, in both directions.</p>
+      <div class="cta-workshop-actions">
         <a href="tigd-weekend-workshop.html" class="btn-primary">Full Details</a>
-        <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener" class="btn-secondary">Schedule a Call →</a>
+        <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener" class="btn-box">Schedule a Call</a>
       </div>
     </div>
+
+    <p class="cta-farewell">Thank you for reading. I wish you the best — and hope to meet you in TIG.</p>
+
   </div>
 </section>
 
