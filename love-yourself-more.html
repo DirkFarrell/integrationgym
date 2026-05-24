@@ -370,20 +370,92 @@
       margin-top: 2rem;
       padding: 1.5rem 2rem;
       border-left: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
       background: rgba(184, 134, 11, 0.06);
     }
     .mid-contact p {
       font-size: 0.95rem;
       color: var(--body-light);
-      margin-bottom: 0;
+      margin-bottom: 0.75rem;
       font-style: italic;
     }
-    .mid-contact a {
-      color: var(--gold);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold);
+    .mid-contact-boxes {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
     }
-    .mid-contact a:hover { color: var(--gold-hover); border-color: var(--gold-hover); }
+    .mid-contact-box {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--gold);
+      color: #ffffff;
+      transition: background 0.2s;
+    }
+    .mid-contact-box:hover { background: var(--gold-hover); }
+    .mid-contact-box-email {
+      background: var(--gold);
+      color: #ffffff;
+      border: none;
+    }
+    .mid-contact-box-email:hover { background: var(--gold-hover); }
+    .mid-contact-note {
+      font-size: 0.85rem !important;
+      color: var(--muted-light) !important;
+      font-style: normal !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* ── MID WORKSHOP ── */
+    .mid-workshop {
+      margin-top: 2.5rem;
+      padding: 1.5rem 2rem;
+      background: rgba(255, 255, 255, 0.09);
+      border-left: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
+    }
+    .mid-workshop-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .mid-workshop-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #ffffff;
+      white-space: nowrap;
+      opacity: 0.6;
+    }
+    .mid-workshop-title {
+      font-size: 0.95rem;
+      color: #ffffff;
+      font-weight: 300;
+      flex: 1;
+      margin-bottom: 0;
+      font-style: italic;
+      text-align: center;
+    }
+    .mid-workshop-link {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--gold);
+      color: #ffffff;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .mid-workshop-link:hover { background: var(--gold-hover); }
 
     /* ── CTA SECTION ── */
     .cta-section {
@@ -840,7 +912,10 @@
     <span class="followthrough">That's it. That's what we're building toward.</span>
 
     <div class="mid-contact">
-      <p>If this is already landing — <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener">schedule a conversation</a> or <a href="mailto:dirk@integrationgym.org">email Dirk directly</a>. No need to read further.</p>
+      <div class="mid-contact-boxes">
+        <a href="https://calendly.com/dirk-integrationgym/30min" target="_blank" rel="noopener" class="mid-contact-box">Schedule a Conversation</a>
+        <a href="mailto:dirk@integrationgym.org" class="mid-contact-box mid-contact-box-email">dirk@integrationgym.org</a>
+      </div>
     </div>
   </div>
 </section>
@@ -876,6 +951,15 @@
 
       <p>TIG is not competing with meditation. It's addressing something meditation largely leaves unnamed.</p>
     </div>
+
+    <div class="mid-workshop">
+      <div class="mid-workshop-inner">
+        <span class="mid-workshop-label">Next opportunity</span>
+        <p class="mid-workshop-title">The Integration Gym Workshop<br>June 27–28 · Seattle</p>
+        <a href="tigd-weekend-workshop.html" class="mid-workshop-link">Full Details →</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
